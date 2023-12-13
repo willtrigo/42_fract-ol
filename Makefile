@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/07 10:27:21 by dande-je         ###   ########.fr        #
+#    Updated: 2023/12/13 02:40:14 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,8 +109,7 @@ define comp_objs
 	$(eval COUNT=$(shell expr $(COUNT) + 1))
 	$(COMPILE_OBJS)
 	$(SLEEP)
-	printf "$(YELLOW)$(COMP_MESSAGE) %d%%\r$(RESET)" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
-	printf "\n"
+	printf "$(YELLOW)[%3d%%] $(COMP_MESSAGE)\r$(RESET)\n" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
 endef
 
 define comp_exe
@@ -120,10 +119,6 @@ define comp_exe
 	$(COMPILE_EXE)
 	$(SLEEP)
 	printf "$(GREEN)$(EXE_MESSAGE)\n$(RESET)"
-endef
-
-define eraseBins
-	$(if $(NAME),@$(RM) $(NAME))
 endef
 
 define clean
@@ -137,7 +132,7 @@ define clean
 endef
 
 define fclean
-	$(call eraseBins)
+	$(RM) $(NAME)
 	$(SLEEP)
 	printf "$(RED)$(FCLEAN_MESSAGE)$(RESET)\n"
 endef
