@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/13 02:40:14 by dande-je         ###   ########.fr        #
+#    Updated: 2023/12/13 06:26:15 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,6 @@ DEPS                        := $(OBJS:.o=.d)
 
 COUNT                       = 0
 CLEAN_MESSAGE               := Fractol objects deleted
-CLEAN_MLX42_MESSAGE         := MLX42 deleted
-CLEAN_LIBFT_MESSAGE         := LIBFT deleted
 FCLEAN_MESSAGE              := Fractol deleted
 EXE_MESSAGE                 = Fractol compiled
 COMP_MESSAGE                = Compiling fractol
@@ -105,6 +103,18 @@ define create_dir
 	$(MKDIR) $(dir $@)
 endef
 
+define submodule_update
+	git submodule update --init --recursive
+	git submodule foreach --recursive git fetch
+	cd $(LIBFT_DIR) && git reset --hard 42_libft-v2.2.0
+	cd $(MLX42_DIR) && git reset --hard v2.3.2
+	$(MAKE) -C $(LIBFT_DIR)
+	sed -i 's/3\.18/3.16/g' $(MLX42_DIR)CMakeLists.txt
+	cd $(MLX42_DIR) && cmake -B build -DDEBUG=1
+	cd $(MLX42_DIR) && cmake --build build -j4
+	cd $(MLX42_DIR) && git restore CMakeLists.txt
+endef
+
 define comp_objs
 	$(eval COUNT=$(shell expr $(COUNT) + 1))
 	$(COMPILE_OBJS)
@@ -113,19 +123,12 @@ define comp_objs
 endef
 
 define comp_exe
-	cd $(MLX42_DIR) && cmake -B build -DDEBUG=1
-	cd $(MLX42_DIR) && cmake --build build -j4
-	$(MAKE) -sC $(LIBFT_DIR)
 	$(COMPILE_EXE)
 	$(SLEEP)
 	printf "$(GREEN)$(EXE_MESSAGE)\n$(RESET)"
 endef
 
 define clean
-	$(RM) $(MLX42_BUILD_DIR)
-	printf "$(RED)$(CLEAN_MLX42_MESSAGE)\n$(RESET)"
-	$(MAKE) fclean -C $(LIBFT_DIR)
-	printf "$(RED)$(CLEAN_LIBFT_MESSAGE)\n$(RESET)"
 	$(RM) $(OBJS_DIR)
 	$(SLEEP)
 	printf "$(RED)$(CLEAN_MESSAGE)\n$(RESET)"
@@ -160,6 +163,9 @@ endef
 
 all: $(NAME)
 
+submodule_update:
+	$(call submodule_update)
+
 $(OBJS_DIR)%.o: %.c
 	$(call create_dir)
 	$(call comp_objs)
@@ -184,7 +190,7 @@ debug:
 run: fclean $(NAME)
 	$(call run)
 
-.PHONY: all clean fclean re fsanitize debug
+.PHONY: submodule_update all clean fclean re fsanitize debug
 .DEFAULT_GOAL := all
 .SILENT:
 
