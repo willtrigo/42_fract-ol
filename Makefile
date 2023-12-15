@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/13 06:26:15 by dande-je         ###   ########.fr        #
+#    Updated: 2023/12/15 11:34:00 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,16 +103,23 @@ define create_dir
 	$(MKDIR) $(dir $@)
 endef
 
-define submodule_update
-	git submodule update --init --recursive
-	git submodule foreach --recursive git fetch
-	cd $(LIBFT_DIR) && git reset --hard 42_libft-v2.2.0
-	cd $(MLX42_DIR) && git reset --hard v2.3.2
-	$(MAKE) -C $(LIBFT_DIR)
-	sed -i 's/3\.18/3.16/g' $(MLX42_DIR)CMakeLists.txt
-	cd $(MLX42_DIR) && cmake -B build -DDEBUG=1
+define submodule_update_mlx42
+	printf "$(YELLOW)Building mlx42 files\n$(RESET)"
+	git submodule update --init --recursive >/dev/null 2>&1 || true
+	git submodule foreach --recursive git fetch >/dev/null 2>&1 || true
+	cd $(MLX42_DIR) && git reset --hard v2.3.2 >/dev/null 2>&1 || true
+	sed -i 's/3\.18/3.16/g' $(MLX42_DIR)CMakeLists.txt >/dev/null 2>&1 || true
+	cd $(MLX42_DIR) && cmake -B build -DDEBUG=1 >/dev/null 2>&1 || true
 	cd $(MLX42_DIR) && cmake --build build -j4
-	cd $(MLX42_DIR) && git restore CMakeLists.txt
+	cd $(MLX42_DIR) && git restore CMakeLists.txt >/dev/null 2>&1 || true
+endef
+
+define submodule_update_libft
+	printf "$(YELLOW)Building libft files\n$(RESET)"
+	git submodule update --init --recursive >/dev/null 2>&1 || true
+	git submodule foreach --recursive git fetch >/dev/null 2>&1 || true
+	cd $(LIBFT_DIR) && git reset --hard 42_libft-v2.2.0 >/dev/null 2>&1 || true
+	$(MAKE) -C $(LIBFT_DIR)
 endef
 
 define comp_objs
@@ -161,10 +168,7 @@ endef
 #                                   TARGETS                                    #
 #******************************************************************************#
 
-all: $(NAME)
-
-submodule_update:
-	$(call submodule_update)
+all: $(LIBFT) $(MLX42) $(NAME)
 
 $(OBJS_DIR)%.o: %.c
 	$(call create_dir)
@@ -172,6 +176,12 @@ $(OBJS_DIR)%.o: %.c
 
 $(NAME): $(OBJS)
 	$(call comp_exe)
+
+$(LIBFT):
+	$(call submodule_update_libft)
+
+$(MLX42):
+	$(call submodule_update_mlx42)
 
 clean:
 	$(call clean)
@@ -190,7 +200,7 @@ debug:
 run: fclean $(NAME)
 	$(call run)
 
-.PHONY: submodule_update all clean fclean re fsanitize debug
+.PHONY: all clean fclean re fsanitize debug
 .DEFAULT_GOAL := all
 .SILENT:
 
