@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fractol.h                                       :+:      :+:    :+:   */
+/*   manager_fractol.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2023/12/18 20:20:43 by dande-je         ###   ########.fr       */
+/*   Created: 2023/12/18 19:16:03 by dande-je          #+#    #+#             */
+/*   Updated: 2023/12/18 20:20:40 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FRACTOL_H
-# define FT_FRACTOL_H
+#ifndef MANAGER_FRACTOL_H
+# define MANAGER_FRACTOL_H
 
-# include "../lib/MLX42/include/MLX42/MLX42.h"
-# include "../lib/42_libft/include/libft.h"
-# include <math.h>
-# include <errno.h>
-# include "manager_fractol.h"
+# include "ft_fractol.h"
+
+typedef struct s_fractol	t_fractol;
+struct s_fractol
+{
+	mlx_t	*mlx;
+};
+
+void	ft_init_fractol(int32_t argc, char **map);
+int		ft_is_valid_double(const char *str);
+void	ft_parse_julia(char **map);
+void	ft_parse_mandelbrot(int32_t argc);
+void	ft_create_fractol(char **map);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/15 11:34:00 by dande-je         ###   ########.fr        #
+#    Updated: 2023/12/18 20:22:02 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ MLX42_DIR                   := ./lib/MLX42/
 MLX42_BUILD_DIR             := ./lib/MLX42/build/
 OBJS_DIR                    := ./obj/
 SRCS_MAIN_DIR               := ./src/
+SRCS_MAPS_DIR               := ./src/maps/
+SRCS_UTILS_DIR              := ./src/utils/
 
 #******************************************************************************#
 #                               BASH COMMANDS                                  #
@@ -53,6 +55,11 @@ NAME                        := fractol
 HEADER                      := $(INCLUDES_DIR)
 
 SRCS_FILES                  += $(addprefix $(SRCS_MAIN_DIR), main.c)
+SRCS_FILES                  += $(addprefix $(SRCS_UTILS_DIR), parse_fractol.c \
+	valid_double.c \
+	create_fractol.c)
+SRCS_FILES                  += $(addprefix $(SRCS_MAPS_DIR), julia.c \
+	mandelbrot.c)
 
 OBJS                        += $(SRCS_FILES:%.c=$(OBJS_DIR)%.o)
 
@@ -161,7 +168,7 @@ endef
 
 define run
 	printf "$(CYAN)$(RUN_MESSAGE)$(RESET)\n"
-	./$(NAME)
+	./$(NAME) $(map) $(v1) $(v2)
 endef
 
 #******************************************************************************#
@@ -200,7 +207,7 @@ debug:
 run: fclean $(NAME)
 	$(call run)
 
-.PHONY: all clean fclean re fsanitize debug
+.PHONY: all clean fclean re fsanitize debug run
 .DEFAULT_GOAL := all
 .SILENT:
 

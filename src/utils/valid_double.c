@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fractol.h                                       :+:      :+:    :+:   */
+/*   valid_double.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2023/12/18 20:20:43 by dande-je         ###   ########.fr       */
+/*   Created: 2023/12/18 11:54:49 by dande-je          #+#    #+#             */
+/*   Updated: 2023/12/18 19:15:03 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FRACTOL_H
-# define FT_FRACTOL_H
+#include "../../include/ft_fractol.h"
 
-# include "../lib/MLX42/include/MLX42/MLX42.h"
-# include "../lib/42_libft/include/libft.h"
-# include <math.h>
-# include <errno.h>
-# include "manager_fractol.h"
+int	ft_is_valid_double(const char *str)
+{
+	char	*endptr;
 
-#endif
+	strtod(str, &endptr);
+	return (*endptr == '\0');
+}

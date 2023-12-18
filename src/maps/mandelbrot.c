@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fractol.h                                       :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2023/12/18 20:20:43 by dande-je         ###   ########.fr       */
+/*   Created: 2023/12/18 08:05:54 by dande-je          #+#    #+#             */
+/*   Updated: 2023/12/18 19:07:21 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FRACTOL_H
-# define FT_FRACTOL_H
+#include "../../include/ft_fractol.h"
 
-# include "../lib/MLX42/include/MLX42/MLX42.h"
-# include "../lib/42_libft/include/libft.h"
-# include <math.h>
-# include <errno.h>
-# include "manager_fractol.h"
-
-#endif
+void	ft_parse_mandelbrot(int32_t argc)
+{
+	if (argc > 2)
+	{
+		ft_putstr_fd("\033[0;31mInvalid Mandelbrot\033[0m - Too many argumments\n", STDOUT_FILENO);
+		exit(EXIT_FAILURE);
+	}
+}
