@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/18 20:22:02 by dande-je         ###   ########.fr        #
+#    Updated: 2023/12/20 23:19:55 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,7 +114,7 @@ define submodule_update_mlx42
 	printf "$(YELLOW)Building mlx42 files\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach --recursive git fetch >/dev/null 2>&1 || true
-	cd $(MLX42_DIR) && git reset --hard v2.3.2 >/dev/null 2>&1 || true
+	cd $(MLX42_DIR) && git reset --hard v2.3.3 >/dev/null 2>&1 || true
 	sed -i 's/3\.18/3.16/g' $(MLX42_DIR)CMakeLists.txt >/dev/null 2>&1 || true
 	cd $(MLX42_DIR) && cmake -B build -DDEBUG=1 >/dev/null 2>&1 || true
 	cd $(MLX42_DIR) && cmake --build build -j4
