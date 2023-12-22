@@ -5,3 +5,4 @@
 tovog/
 .vscode
 fractol
+valgrind-out.txt
