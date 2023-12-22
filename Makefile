@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/20 23:19:55 by dande-je         ###   ########.fr        #
+#    Updated: 2023/12/22 03:31:40 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ MLX42_DIR                   := ./lib/MLX42/
 MLX42_BUILD_DIR             := ./lib/MLX42/build/
 OBJS_DIR                    := ./obj/
 SRCS_MAIN_DIR               := ./src/
-SRCS_MAPS_DIR               := ./src/maps/
+SRCS_MAPS_DIR               := ./src/fractal/
 SRCS_UTILS_DIR              := ./src/utils/
 
 #******************************************************************************#
@@ -41,7 +41,7 @@ SRCS_UTILS_DIR              := ./src/utils/
 RM                          := rm -rf
 MKDIR                       := mkdir -p
 MAKE_NOPRINT                := $(MAKE) --no-print-directory
-SLEEP                       := sleep 0.3
+SLEEP                       := sleep 0
 
 #******************************************************************************#
 #                                   FILES                                      #
@@ -55,9 +55,11 @@ NAME                        := fractol
 HEADER                      := $(INCLUDES_DIR)
 
 SRCS_FILES                  += $(addprefix $(SRCS_MAIN_DIR), main.c)
-SRCS_FILES                  += $(addprefix $(SRCS_UTILS_DIR), parse_fractol.c \
-	valid_double.c \
-	create_fractol.c)
+SRCS_FILES                  += $(addprefix $(SRCS_UTILS_DIR), parse_fractal.c \
+	create_fractal.c \
+	control_fractal.c \
+	manage_fractal_assets.c \
+	free_fractal.c)
 SRCS_FILES                  += $(addprefix $(SRCS_MAPS_DIR), julia.c \
 	mandelbrot.c)
 
@@ -125,7 +127,7 @@ define submodule_update_libft
 	printf "$(YELLOW)Building libft files\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach --recursive git fetch >/dev/null 2>&1 || true
-	cd $(LIBFT_DIR) && git reset --hard 42_libft-v2.2.0 >/dev/null 2>&1 || true
+	cd $(LIBFT_DIR) && git reset --hard 42_libft-v2.3.1 >/dev/null 2>&1 || true
 	$(MAKE) -C $(LIBFT_DIR)
 endef
 
@@ -133,7 +135,7 @@ define comp_objs
 	$(eval COUNT=$(shell expr $(COUNT) + 1))
 	$(COMPILE_OBJS)
 	$(SLEEP)
-	printf "$(YELLOW)[%3d%%] $(COMP_MESSAGE)\r$(RESET)\n" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
+	printf "[%3d%%] $(YELLOW)$(COMP_MESSAGE)\r$(RESET)\n" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
 endef
 
 define comp_exe

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 07:55:53 by dande-je          #+#    #+#             */
-/*   Updated: 2023/12/22 00:27:05 by dande-je         ###   ########.fr       */
+/*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
+/*   Updated: 2023/12/22 01:19:44 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_fractol.h"
+#include "../../include/ft_fractol.h"
 
-int32_t	main(int32_t argc, char **argv)
+void	ft_key_hook(mlx_key_data_t key, t_fractal *data)
 {
-	if (argc < 2 || argc > 4)
+	if (key.key == MLX_KEY_ESCAPE)
 	{
-		ft_putstr_fd("\033[0;31mUsage:\033[0m ./fractol [fractal type] [fractal constant]\n", STDOUT_FILENO);
-		exit(EXIT_FAILURE);
+		mlx_close_window(data->mlx);
+		return ;
 	}
-	ft_parse_fractal(argc, argv);
-	ft_create_fractal(argv);
-	exit(EXIT_SUCCESS);
 }

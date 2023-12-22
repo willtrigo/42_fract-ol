@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manager_fractol.h                                  :+:      :+:    :+:   */
+/*   manage_assets.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 19:16:03 by dande-je          #+#    #+#             */
-/*   Updated: 2023/12/18 20:20:40 by dande-je         ###   ########.fr       */
+/*   Created: 2023/12/21 08:23:05 by dande-je          #+#    #+#             */
+/*   Updated: 2023/12/21 11:20:39 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MANAGER_FRACTOL_H
-# define MANAGER_FRACTOL_H
+#include "../../include/ft_fractol.h"
 
-# include "ft_fractol.h"
-
-typedef struct s_fractol	t_fractol;
-struct s_fractol
+void	ft_load_assets(t_fractal *data)
 {
-	mlx_t	*mlx;
-};
-
-void	ft_init_fractol(int32_t argc, char **map);
-int		ft_is_valid_double(const char *str);
-void	ft_parse_julia(char **map);
-void	ft_parse_mandelbrot(int32_t argc);
-void	ft_create_fractol(char **map);
-
-#endif
+	data->assets->t_icon = mlx_load_png("./assets/42_icon.png");
+}
