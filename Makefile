@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/22 03:31:40 by dande-je         ###   ########.fr        #
+#    Updated: 2023/12/22 16:43:40 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,7 +127,7 @@ define submodule_update_libft
 	printf "$(YELLOW)Building libft files\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach --recursive git fetch >/dev/null 2>&1 || true
-	cd $(LIBFT_DIR) && git reset --hard 42_libft-v2.3.1 >/dev/null 2>&1 || true
+	cd $(LIBFT_DIR) && git reset --hard v2.4.1 >/dev/null 2>&1 || true
 	$(MAKE) -C $(LIBFT_DIR)
 endef
 
