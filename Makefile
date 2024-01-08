@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2023/12/22 16:43:40 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/08 08:30:20 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,14 @@ RESET                       := \033[0m
 #                                   PATH                                       #
 #******************************************************************************#
 
-INCLUDES_DIR                := -I./include/ -I./lib/42_libft -I./lib/MLX42/include/MLX42
+INCLUDES_DIR                := -I./include/ -I ./lib/42_libft -I ./lib/MLX42/include/MLX42
 LINCLUDES                   := -L./lib/42_libft -lft
 LIBFT_DIR                   := ./lib/42_libft/
 MLX42_DIR                   := ./lib/MLX42/
 MLX42_BUILD_DIR             := ./lib/MLX42/build/
-OBJS_DIR                    := ./obj/
+BUILD_DIR                   := ./build/
 SRCS_MAIN_DIR               := ./src/
-SRCS_MAPS_DIR               := ./src/fractal/
-SRCS_UTILS_DIR              := ./src/utils/
+SRCS_INTERNAL_DIR           := ./src/internal/
 
 #******************************************************************************#
 #                               BASH COMMANDS                                  #
@@ -55,15 +54,17 @@ NAME                        := fractol
 HEADER                      := $(INCLUDES_DIR)
 
 SRCS_FILES                  += $(addprefix $(SRCS_MAIN_DIR), main.c)
-SRCS_FILES                  += $(addprefix $(SRCS_UTILS_DIR), parse_fractal.c \
-	create_fractal.c \
-	control_fractal.c \
-	manage_fractal_assets.c \
-	free_fractal.c)
-SRCS_FILES                  += $(addprefix $(SRCS_MAPS_DIR), julia.c \
-	mandelbrot.c)
+SRCS_FILES                  += $(addprefix $(SRCS_INTERNAL_DIR), ft_assets.c \
+	ft_canvas.c \
+	ft_clean.c \
+	ft_color.c \
+	ft_control.c \
+	ft_math.c \
+	ft_parse_fractal.c \
+	ft_render.c \
+	ft_utils.c)
 
-OBJS                        += $(SRCS_FILES:%.c=$(OBJS_DIR)%.o)
+OBJS                        += $(SRCS_FILES:%.c=$(BUILD_DIR)%.o)
 
 DEPS                        := $(OBJS:.o=.d)
 
@@ -75,8 +76,8 @@ COUNT                       = 0
 CLEAN_MESSAGE               := Fractol objects deleted
 FCLEAN_MESSAGE              := Fractol deleted
 EXE_MESSAGE                 = Fractol compiled
-COMP_MESSAGE                = Compiling fractol
-RUN_MESSAGE                := Run fractol
+COMP_MESSAGE                = Compiling
+RUN_MESSAGE                 := Run fractol
 
 #******************************************************************************#
 #                               COMPILATION                                    #
@@ -87,8 +88,6 @@ CFLAGS                      = -Wall -Wextra -Werror -Ofast -flto -MD -MP
 DFLAGS                      = -Wall -Wextra -Werror -Ofast -flto -MD -MP -g3
 MFLAGS                      := -ldl -lglfw -pthread -lm
 LFLAGS                      := -march=native
-FSANITIZE                   := -O1 -fno-omit-frame-pointer -g3
-LDFLAGS                     := -fsanitize=address
 COMPILE_OBJS                = $(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) -c $< -o $@
 COMPILE_EXE                 = $(CC) $(OBJS) $(INCLUDES) $(LIBFT) $(MLX42) $(LINCLUDES) $(CFLAGS) $(MFLAGS) -o $(NAME)
 
@@ -98,10 +97,6 @@ COMPILE_EXE                 = $(CC) $(OBJS) $(INCLUDES) $(LIBFT) $(MLX42) $(LINC
 
 ifdef WITH_DEBUG
 	CFLAGS = $(DFLAGS)
-endif
-
-ifdef WITH_FSANITIZE
-	COMPILE_OBJS = $(CC) $(CFLAGS) $(LFLAGS) $(FSANITIZE) -I $(HEADER) -c $< -o $@ $(LDFLAGS)
 endif
 
 #******************************************************************************#
@@ -135,7 +130,7 @@ define comp_objs
 	$(eval COUNT=$(shell expr $(COUNT) + 1))
 	$(COMPILE_OBJS)
 	$(SLEEP)
-	printf "[%3d%%] $(YELLOW)$(COMP_MESSAGE)\r$(RESET)\n" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
+	printf "[%3d%%] $(YELLOW)$(COMP_MESSAGE) $(basename $(notdir $@)) \r$(RESET)\n" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
 endef
 
 define comp_exe
@@ -145,7 +140,7 @@ define comp_exe
 endef
 
 define clean
-	$(RM) $(OBJS_DIR)
+	$(RM) $(BUILD_DIR)
 	$(SLEEP)
 	printf "$(RED)$(CLEAN_MESSAGE)\n$(RESET)"
 endef
@@ -154,12 +149,6 @@ define fclean
 	$(RM) $(NAME)
 	$(SLEEP)
 	printf "$(RED)$(FCLEAN_MESSAGE)$(RESET)\n"
-endef
-
-define fsanitize
-	$(call clean)
-	$(call fclean)
-	$(MAKE_NOPRINT) WITH_FSANITIZE=TRUE
 endef
 
 define debug
@@ -179,7 +168,7 @@ endef
 
 all: $(LIBFT) $(MLX42) $(NAME)
 
-$(OBJS_DIR)%.o: %.c
+$(BUILD_DIR)%.o: %.c
 	$(call create_dir)
 	$(call comp_objs)
 
@@ -200,16 +189,13 @@ fclean: clean
 
 re: fclean all
 
-fsanitize:
-	$(call fsanitize)
-
 debug:
 	$(call debug)
 
 run: fclean $(NAME)
 	$(call run)
 
-.PHONY: all clean fclean re fsanitize debug run
+.PHONY: all clean fclean re debug run
 .DEFAULT_GOAL := all
 .SILENT:
 
