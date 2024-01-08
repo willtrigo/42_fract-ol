@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/08 08:30:20 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/08 08:43:57 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -192,7 +192,7 @@ re: fclean all
 debug:
 	$(call debug)
 
-run: fclean $(NAME)
+run: fclean all
 	$(call run)
 
 .PHONY: all clean fclean re debug run
