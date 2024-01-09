@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:54:16 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/08 08:10:14 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/09 05:41:30 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_fractol.h"
+#include "ft_parse_fractal.h"
 
 void	ft_parse_fractal(int32_t argc, char **map)
 {
@@ -18,21 +18,26 @@ void	ft_parse_fractal(int32_t argc, char **map)
 		ft_parse_julia(map);
 	else if (!ft_strncmp(map[1], "mandelbrot", ft_str_len("mandelbrot")))
 		ft_parse_mandelbrot(argc);
+	else
+	{
+		ft_help();
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	ft_parse_julia(char **map)
 {
 	if (!ft_isdouble(map[2]))
 	{
-		ft_putstr_fd("\033[0;31mInvalid Julia", STDOUT_FILENO);
-		ft_putstr_fd("\033[0m - constant real invalid.\n", STDOUT_FILENO);
+		ft_putstr_fd("\033[0;31mInvalid Julia", STDERR_FILENO);
+		ft_putstr_fd("\033[0m - constant real invalid.\n", STDERR_FILENO);
 		ft_help();
 		exit(EXIT_FAILURE);
 	}
 	if (!map[3] || !ft_isdouble(map[3]))
 	{
-		ft_putstr_fd("\033[0;31mInvalid Julia", STDOUT_FILENO);
-		ft_putstr_fd("\033[0m - constant imaginary invalid.\n", STDOUT_FILENO);
+		ft_putstr_fd("\033[0;31mInvalid Julia", STDERR_FILENO);
+		ft_putstr_fd("\033[0m - constant imaginary invalid.\n", STDERR_FILENO);
 		ft_help();
 		exit(EXIT_FAILURE);
 	}
@@ -48,8 +53,8 @@ void	ft_parse_mandelbrot(int32_t argc)
 {
 	if (argc > 2)
 	{
-		ft_putstr_fd("\033[0;31mInvalid Mandelbrot", STDOUT_FILENO);
-		ft_putstr_fd("\033[0m - Too many argumments\n", STDOUT_FILENO);
+		ft_putstr_fd("\033[0;31mInvalid Mandelbrot", STDERR_FILENO);
+		ft_putstr_fd("\033[0m - Too many argumments\n", STDERR_FILENO);
 		ft_help();
 		exit(EXIT_FAILURE);
 	}

@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/08 08:36:19 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/09 05:50:01 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_fractol.h"
+#include "ft_control.h"
 
 void	ft_key_hook(mlx_key_data_t key, t_canvas *data)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_math_fractal.c                                  :+:      :+:    :+:   */
+/*   ft_math.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:35:10 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/08 00:45:22 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/09 05:52:27 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_fractol.h"
+#include "ft_math.h"
 
 void	ft_get_complex(t_canvas *data, t_complex *z, t_complex *c,
 			t_complex *x_y)

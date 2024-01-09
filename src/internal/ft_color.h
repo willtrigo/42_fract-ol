@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_defines.h                                       :+:      :+:    :+:   */
+/*   ft_color.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 00:46:00 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/08 01:58:02 by dande-je         ###   ########.fr       */
+/*   Created: 2024/01/09 05:23:33 by dande-je          #+#    #+#             */
+/*   Updated: 2024/01/09 06:38:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_DEFINES_H
-# define FT_DEFINES_H
+#ifndef FT_COLOR_H
+# define FT_COLOR_H
 
+# include <math.h>
+# include "MLX42/MLX42.h"
 # include "ft_fractol.h"
+# include "ft_parse_fractal.h"
 
-# define WIDTH 1920
-# define HEIGHT 1080
-# define MAX 2.0
-# define MIN -2.0
-# define MAX_DEFINITION 45
-# define MAX_VALUE_POLY 4
-# define NAME_WINDOW "42sp - dande-je's fract-ol | type of fractal - "
+int32_t	ft_bernstein_poly(uint32_t i, int32_t a);
+t_color	ft_color(int8_t r, int8_t g, int8_t b, int8_t a);
 
 #endif

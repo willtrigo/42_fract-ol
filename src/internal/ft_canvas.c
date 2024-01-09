@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/08 08:15:04 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/09 06:02:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_fractol.h"
+#include "ft_canvas.h"
 
 static void	ft_init_fractal(t_fractal *fractal, char *name, char **data);
 
@@ -35,7 +35,7 @@ void	ft_create_canvas(char **map)
 	mlx_scroll_hook(data.mlx, (mlx_scrollfunc)ft_scroll_hook, &data);
 	mlx_loop(data.mlx);
 	mlx_terminate(data.mlx);
-	ft_free_fractal(&data);
+	ft_clean(&data);
 }
 
 static void	ft_init_fractal(t_fractal *fractal, char *name, char **data)

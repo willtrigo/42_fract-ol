@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/08 08:43:57 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/09 07:03:43 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,30 +24,26 @@ RESET                       := \033[0m
 #                                   PATH                                       #
 #******************************************************************************#
 
-INCLUDES_DIR                := -I./include/ -I ./lib/42_libft -I ./lib/MLX42/include/MLX42
-LINCLUDES                   := -L./lib/42_libft -lft
-LIBFT_DIR                   := ./lib/42_libft/
-MLX42_DIR                   := ./lib/MLX42/
-MLX42_BUILD_DIR             := ./lib/MLX42/build/
-BUILD_DIR                   := ./build/
+INCS                        := ./src/ ./src/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
 SRCS_MAIN_DIR               := ./src/
 SRCS_INTERNAL_DIR           := ./src/internal/
+BUILD_DIR                   := ./build/
 
 #******************************************************************************#
-#                               BASH COMMANDS                                  #
+#                                  COMMANDS                                    #
 #******************************************************************************#
 
 RM                          := rm -rf
 MKDIR                       := mkdir -p
-MAKE_NOPRINT                := $(MAKE) --no-print-directory
+MAKEFLAGS                   += --no-print-directory
 SLEEP                       := sleep 0
 
 #******************************************************************************#
 #                                   FILES                                      #
 #******************************************************************************#
 
-LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
-MLX42 = $(addprefix $(MLX42_BUILD_DIR), libmlx42.a)
+LIBS                        := ./lib/42_libft/libft.a \
+	./lib/MLX42/build/libmlx42.a
 
 NAME                        := fractol
 
@@ -84,19 +80,20 @@ RUN_MESSAGE                 := Run fractol
 #******************************************************************************#
 
 CC                          := cc
-CFLAGS                      = -Wall -Wextra -Werror -Ofast -flto -MD -MP
-DFLAGS                      = -Wall -Wextra -Werror -Ofast -flto -MD -MP -g3
-MFLAGS                      := -ldl -lglfw -pthread -lm
-LFLAGS                      := -march=native
-COMPILE_OBJS                = $(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) -c $< -o $@
-COMPILE_EXE                 = $(CC) $(OBJS) $(INCLUDES) $(LIBFT) $(MLX42) $(LINCLUDES) $(CFLAGS) $(MFLAGS) -o $(NAME)
+CFLAGS                      = -Wall -Wextra -Werror -Ofast
+CPPFLAGS                    := $(addprefix -I,$(INCS)) -MMD -MP
+DFLAGS                      := -g3
+LDFLAGS                     := $(addprefix -L,$(dir $(LIBS)))
+LDLIBS                      := -lft -lmlx42 -ldl -lglfw -pthread -lm
+COMPILE_OBJS                = $(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+COMPILE_EXE                 = $(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -flto -o $(NAME)
 
 #******************************************************************************#
 #                                   DEFINE                                     #
 #******************************************************************************#
 
 ifdef WITH_DEBUG
-	CFLAGS = $(DFLAGS)
+	CFLAGS += $(DFLAGS)
 endif
 
 #******************************************************************************#
@@ -154,12 +151,7 @@ endef
 define debug
 	$(call clean)
 	$(call fclean)
-	$(MAKE_NOPRINT) WITH_DEBUG=TRUE
-endef
-
-define run
-	printf "$(CYAN)$(RUN_MESSAGE)$(RESET)\n"
-	./$(NAME) $(map) $(v1) $(v2)
+	$(MAKE) WITH_DEBUG=TRUE
 endef
 
 #******************************************************************************#
@@ -192,10 +184,7 @@ re: fclean all
 debug:
 	$(call debug)
 
-run: fclean all
-	$(call run)
-
-.PHONY: all clean fclean re debug run
+.PHONY: all clean fclean re debug
 .DEFAULT_GOAL := all
 .SILENT:
 
