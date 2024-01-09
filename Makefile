@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/09 07:03:43 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/09 08:50:11 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,9 @@ INCS                        := ./src/ ./src/internal/ ./lib/42_libft/include/ ./
 SRCS_MAIN_DIR               := ./src/
 SRCS_INTERNAL_DIR           := ./src/internal/
 BUILD_DIR                   := ./build/
+MLX42_DIR                   := ./lib/MLX42/
+MLX42_BUILD_DIR             := ./lib/MLX42/build/
+LIBFT_DIR                   := ./lib/42_libft/
 
 #******************************************************************************#
 #                                  COMMANDS                                    #
@@ -42,6 +45,8 @@ SLEEP                       := sleep 0
 #                                   FILES                                      #
 #******************************************************************************#
 
+LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
+MLX42 = $(addprefix $(MLX42_BUILD_DIR), libmlx42.a)
 LIBS                        := ./lib/42_libft/libft.a \
 	./lib/MLX42/build/libmlx42.a
 
@@ -86,7 +91,7 @@ DFLAGS                      := -g3
 LDFLAGS                     := $(addprefix -L,$(dir $(LIBS)))
 LDLIBS                      := -lft -lmlx42 -ldl -lglfw -pthread -lm
 COMPILE_OBJS                = $(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-COMPILE_EXE                 = $(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -flto -o $(NAME)
+COMPILE_EXE                 = $(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
 
 #******************************************************************************#
 #                                   DEFINE                                     #
