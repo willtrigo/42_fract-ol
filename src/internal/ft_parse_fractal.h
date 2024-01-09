@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:39:21 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 06:38:33 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:27:57 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <errno.h>
 # include "MLX42/MLX42.h"
-# include "ft_non-standard.h"
+# include "ft_non_standard.h"
 # include "ft_string.h"
 # include "ft_canvas.h"
 # include "ft_utils.h"
