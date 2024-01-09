@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 06:37:03 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:40:53 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define MAX_VALUE_POLY 4
 # define NAME_WINDOW "42sp - dande-je's fract-ol | type of fractal - "
 
-typedef union u_color	t_color;
+typedef union u_color		t_color;
 union u_color
 {
 	uint32_t	value;

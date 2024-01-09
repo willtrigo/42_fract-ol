@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 07:08:40 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:43:52 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	ft_render_bg(t_canvas *data)
 	{
 		x = -1;
 		while (++x < WIDTH)
-			mlx_put_pixel(data->bg, x, y, ft_color(0x00, 0x00, 0xFF, 0xFF/8).value);
+		{
+			mlx_put_pixel(data->bg, x, y, ft_color(0x00, 0x00, 0xFF, \
+				0xFF / 8).value);
+		}
 	}
 }
 
