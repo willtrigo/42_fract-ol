@@ -6,9 +6,17 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/09 10:15:59 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/10 07:46:29 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#******************************************************************************#
+#                                REQUIREMENTS                                  #
+#******************************************************************************#
+
+LIBFT_VERSION               := 2.4.3
+MLX42_VERSION               := 2.3.3
+CMAKE_VERSION               := 3.16
 
 #******************************************************************************#
 #                                   COLOR                                      #
@@ -24,9 +32,12 @@ RESET                       := \033[0m
 #                                   PATH                                       #
 #******************************************************************************#
 
-INCS                        := ./src/ ./src/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
 SRCS_MAIN_DIR               := ./src/
 SRCS_INTERNAL_DIR           := ./src/internal/
+INCS                        = ./src/ ./src/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
+SRCS_MAIN_BONUS_DIR         := ./bonus/
+SRCS_INTERNAL_BONUS_DIR     := ./bonus/internal/
+INCS_BONUS                  = ./bonus/ ./bonus/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
 BUILD_DIR                   := ./build/
 MLX42_DIR                   := ./lib/MLX42/
 MLX42_BUILD_DIR             := ./lib/MLX42/build/
@@ -50,9 +61,8 @@ MLX42 = $(addprefix $(MLX42_BUILD_DIR), libmlx42.a)
 LIBS                        := ./lib/42_libft/libft.a \
 	./lib/MLX42/build/libmlx42.a
 
-NAME                        := fractol
-
-HEADER                      := $(INCLUDES_DIR)
+NAME                        = fractol
+NAME_BONUS                  = fractol_bonus
 
 SRCS_FILES                  += $(addprefix $(SRCS_MAIN_DIR), main.c)
 SRCS_FILES                  += $(addprefix $(SRCS_INTERNAL_DIR), ft_assets.c \
@@ -65,7 +75,20 @@ SRCS_FILES                  += $(addprefix $(SRCS_INTERNAL_DIR), ft_assets.c \
 	ft_render.c \
 	ft_utils.c)
 
+SRCS_BONUS_FILES            += $(addprefix $(SRCS_MAIN_BONUS_DIR), main.c)
+SRCS_BONUS_FILES            += $(addprefix $(SRCS_INTERNAL_BONUS_DIR), ft_assets.c \
+	ft_canvas.c \
+	ft_clean.c \
+	ft_color.c \
+	ft_control.c \
+	ft_math.c \
+	ft_parse_fractal.c \
+	ft_render.c \
+	ft_utils.c)
+
 OBJS                        += $(SRCS_FILES:%.c=$(BUILD_DIR)%.o)
+
+OBJS_BONUS                  += $(SRCS_BONUS_FILES:%.c=$(BUILD_DIR)%.o)
 
 DEPS                        := $(OBJS:.o=.d)
 
@@ -75,10 +98,13 @@ DEPS                        := $(OBJS:.o=.d)
 
 COUNT                       = 0
 CLEAN_MESSAGE               := Fractol objects deleted
+CLEAN_MLX42_OBJS_MESSAGE    := Library MLX42 objects deleted
+CLEAN_MLX42_MESSAGE         := Library MLX42 deleted
 FCLEAN_MESSAGE              := Fractol deleted
 EXE_MESSAGE                 = Fractol compiled
+EXE_BONUS_MESSAGE           = Fractol bonus compiled
 COMP_MESSAGE                = Compiling
-RUN_MESSAGE                 := Run fractol
+COMP_BONUS                  = $(CYAN)[BONUS]$(RESET) $(YELLOW)Compiling
 
 #******************************************************************************#
 #                               COMPILATION                                    #
@@ -101,6 +127,14 @@ ifdef WITH_DEBUG
 	CFLAGS += $(DFLAGS)
 endif
 
+ifdef WITH_BONUS
+	NAME                    = $(NAME_BONUS)
+	OBJS                    = $(OBJS_BONUS)
+	INCS                    = $(INCS_BONUS)
+	COMP_MESSAGE            = $(COMP_BONUS)
+	EXE_MESSAGE             = $(EXE_BONUS_MESSAGE)
+endif
+
 #******************************************************************************#
 #                                  FUNCTION                                    #
 #******************************************************************************#
@@ -112,9 +146,11 @@ endef
 define submodule_update_mlx42
 	printf "$(YELLOW)Building mlx42 files\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
-	git submodule foreach --recursive git fetch >/dev/null 2>&1 || true
-	cd $(MLX42_DIR) && git reset --hard v2.3.3 >/dev/null 2>&1 || true
-	sed -i 's/3\.18/3.16/g' $(MLX42_DIR)CMakeLists.txt >/dev/null 2>&1 || true
+	git submodule foreach -q --recursive \
+		'branch="$(git config -f $toplevel/.gitmodules submodule.MLX42)"; \
+		git pull origin master; git fetch; git checkout v$(MLX42_VERSION)' >/dev/null 2>&1 || true
+	sed -i 's/3\.18/$(CMAKE_VERSION)/g' $(MLX42_DIR)CMakeLists.txt >/dev/null 2>&1 || true
+	$(SLEEP)
 	cd $(MLX42_DIR) && cmake -B build -DDEBUG=1 >/dev/null 2>&1 || true
 	cd $(MLX42_DIR) && cmake --build build -j4
 	cd $(MLX42_DIR) && git restore CMakeLists.txt >/dev/null 2>&1 || true
@@ -123,9 +159,15 @@ endef
 define submodule_update_libft
 	printf "$(YELLOW)Building libft files\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
-	git submodule foreach --recursive git fetch >/dev/null 2>&1 || true
-	cd $(LIBFT_DIR) && git reset --hard v2.4.3 >/dev/null 2>&1 || true
+	git submodule foreach -q --recursive \
+		'branch="$(git config -f $toplevel/.gitmodules submodule.42_libft)"; \
+		git pull origin main; git fetch; git checkout v$(LIBFT_VERSION)' >/dev/null 2>&1 || true
+	$(SLEEP)
 	$(MAKE) -C $(LIBFT_DIR)
+endef
+
+define bonus
+	$(MAKE) WITH_BONUS=TRUE
 endef
 
 define comp_objs
@@ -143,12 +185,16 @@ endef
 
 define clean
 	$(RM) $(BUILD_DIR)
+	$(MAKE) fclean -C $(LIBFT_DIR)
+	$(RM) $(MLX42_BUILD_DIR)
+	printf "$(RED)$(CLEAN_MLX42_OBJS_MESSAGE)\n$(RESET)"
+	printf "$(RED)$(CLEAN_MLX42_MESSAGE)\n$(RESET)"
 	$(SLEEP)
 	printf "$(RED)$(CLEAN_MESSAGE)\n$(RESET)"
 endef
 
 define fclean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_BONUS)
 	$(SLEEP)
 	printf "$(RED)$(FCLEAN_MESSAGE)$(RESET)\n"
 endef
@@ -178,6 +224,9 @@ $(LIBFT):
 $(MLX42):
 	$(call submodule_update_mlx42)
 
+bonus:
+	$(call bonus)
+
 clean:
 	$(call clean)
 
@@ -189,7 +238,7 @@ re: fclean all
 debug:
 	$(call debug)
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re debug bonus
 .DEFAULT_GOAL := all
 .SILENT:
 
