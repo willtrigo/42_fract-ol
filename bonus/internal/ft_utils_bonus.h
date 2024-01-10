@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_color.h                                         :+:      :+:    :+:   */
+/*   ft_utils_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 05:23:33 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 06:38:05 by dande-je         ###   ########.fr       */
+/*   Created: 2024/01/09 05:36:56 by dande-je          #+#    #+#             */
+/*   Updated: 2024/01/10 08:47:34 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLOR_H
-# define FT_COLOR_H
+#ifndef FT_UTILS_BONUS_H
+# define FT_UTILS_BONUS_H
 
-# include <math.h>
-# include "MLX42/MLX42.h"
-# include "ft_fractol.h"
-# include "ft_parse_fractal.h"
+# include "ft_non_standard.h"
 
-int32_t	ft_bernstein_poly(uint32_t i, int32_t a);
-t_color	ft_color(int8_t r, int8_t g, int8_t b, int8_t a);
+void	ft_help(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/10 01:24:52 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/10 08:41:54 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,13 @@ struct s_canvas
 	mlx_t			*mlx;
 	mlx_image_t		*canvas;
 	mlx_image_t		*bg;
-	char			*title_window;
-	char			*name;
 	mlx_texture_t	*icon;
 	t_fractal		*fractal;
+	double	b_shitf;
+	double	g_shitf;
+	double	r_shitf;
+	char			*title_window;
+	char			*name;
 };
 
 #endif

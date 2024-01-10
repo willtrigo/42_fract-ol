@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_control.c                                       :+:      :+:    :+:   */
+/*   ft_control_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/10 01:22:36 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/10 08:49:27 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_control.h"
+#include "ft_control_bonus.h"
 
 void	ft_key_hook(mlx_key_data_t key, t_canvas *data)
 {
@@ -19,6 +19,7 @@ void	ft_key_hook(mlx_key_data_t key, t_canvas *data)
 		mlx_close_window(data->mlx);
 		return ;
 	}
+	
 }
 
 void	ft_scroll_hook(double xdelta, double ydelta, t_canvas *data)

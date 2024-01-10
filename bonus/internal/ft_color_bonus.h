@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_control.h                                       :+:      :+:    :+:   */
+/*   ft_color_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 05:48:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 05:50:47 by dande-je         ###   ########.fr       */
+/*   Created: 2024/01/09 05:23:33 by dande-je          #+#    #+#             */
+/*   Updated: 2024/01/10 08:47:15 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CONTROL_H
-# define FT_CONTROL_H
+#ifndef FT_COLOR_BONUS_H
+# define FT_COLOR_BONUS_H
 
+# include <math.h>
 # include "MLX42/MLX42.h"
-# include "ft_canvas.h"
+# include "ft_fractol_bonus.h"
+# include "ft_parse_fractal_bonus.h"
 
-void	ft_key_hook(mlx_key_data_t key, t_canvas *data);
-void	ft_scroll_hook(double xdelta, double ydelta, t_canvas *data);
+int32_t	ft_bernstein_poly(uint32_t i, int32_t a);
+t_color	ft_color(int8_t r, int8_t g, int8_t b, int8_t a);
 
 #endif

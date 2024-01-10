@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_canvas.h                                        :+:      :+:    :+:   */
+/*   ft_assets_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 05:21:32 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 06:34:15 by dande-je         ###   ########.fr       */
+/*   Created: 2024/01/09 05:19:03 by dande-je          #+#    #+#             */
+/*   Updated: 2024/01/10 08:47:01 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CANVAS_H
-# define FT_CANVAS_H
+#ifndef FT_ASSETS_BONUS_H
+# define FT_ASSETS_BONUS_H
 
-# include <math.h>
-# include "MLX42/MLX42.h"
-# include "ft_stdlib.h"
-# include "ft_string.h"
-# include "ft_fractol.h"
-# include "ft_color.h"
-# include "ft_control.h"
-# include "ft_clean.h"
-# include "ft_assets.h"
-# include "ft_render.h"
-# include "ft_math.h"
+# include "ft_canvas_bonus.h"
 
-void	ft_create_canvas(char **map);
+void	ft_load_assets(t_canvas *data);
 
 #endif

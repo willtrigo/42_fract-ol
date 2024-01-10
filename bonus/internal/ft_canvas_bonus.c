@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_canvas.c                                        :+:      :+:    :+:   */
+/*   ft_canvas_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/10 01:22:45 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/10 08:52:50 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_canvas.h"
+#include "ft_canvas_bonus.h"
 
 static void	ft_init_fractal(t_fractal *fractal, char *name, char **data);
 
@@ -24,6 +24,7 @@ void	ft_create_canvas(char **map)
 	data.bg = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	data.canvas = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	data.fractal = ft_calloc(1, sizeof(t_fractal));
+	data.r_shitf = 17.0;
 	ft_init_fractal(data.fractal, data.name, map);
 	ft_render_bg(&data);
 	ft_render_fractal(&data);

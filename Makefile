@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/10 07:46:29 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/10 10:00:28 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,9 @@ RESET                       := \033[0m
 
 SRCS_MAIN_DIR               := ./src/
 SRCS_INTERNAL_DIR           := ./src/internal/
-INCS                        = ./src/ ./src/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
+INCS                        = ./src/ ./src/internal/ ./bonus/ ./bonus/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
 SRCS_MAIN_BONUS_DIR         := ./bonus/
 SRCS_INTERNAL_BONUS_DIR     := ./bonus/internal/
-INCS_BONUS                  = ./bonus/ ./bonus/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
 BUILD_DIR                   := ./build/
 MLX42_DIR                   := ./lib/MLX42/
 MLX42_BUILD_DIR             := ./lib/MLX42/build/
@@ -50,7 +49,7 @@ LIBFT_DIR                   := ./lib/42_libft/
 RM                          := rm -rf
 MKDIR                       := mkdir -p
 MAKEFLAGS                   += --no-print-directory
-SLEEP                       := sleep 0
+SLEEP                       := sleep 0.1
 
 #******************************************************************************#
 #                                   FILES                                      #
@@ -76,15 +75,15 @@ SRCS_FILES                  += $(addprefix $(SRCS_INTERNAL_DIR), ft_assets.c \
 	ft_utils.c)
 
 SRCS_BONUS_FILES            += $(addprefix $(SRCS_MAIN_BONUS_DIR), main.c)
-SRCS_BONUS_FILES            += $(addprefix $(SRCS_INTERNAL_BONUS_DIR), ft_assets.c \
-	ft_canvas.c \
-	ft_clean.c \
-	ft_color.c \
-	ft_control.c \
-	ft_math.c \
-	ft_parse_fractal.c \
-	ft_render.c \
-	ft_utils.c)
+SRCS_BONUS_FILES            += $(addprefix $(SRCS_INTERNAL_BONUS_DIR), ft_assets_bonus.c \
+	ft_canvas_bonus.c \
+	ft_clean_bonus.c \
+	ft_color_bonus.c \
+	ft_control_bonus.c \
+	ft_math_bonus.c \
+	ft_parse_fractal_bonus.c \
+	ft_render_bonus.c \
+	ft_utils_bonus.c)
 
 OBJS                        += $(SRCS_FILES:%.c=$(BUILD_DIR)%.o)
 
@@ -130,7 +129,6 @@ endif
 ifdef WITH_BONUS
 	NAME                    = $(NAME_BONUS)
 	OBJS                    = $(OBJS_BONUS)
-	INCS                    = $(INCS_BONUS)
 	COMP_MESSAGE            = $(COMP_BONUS)
 	EXE_MESSAGE             = $(EXE_BONUS_MESSAGE)
 endif
