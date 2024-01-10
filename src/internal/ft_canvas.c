@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 06:02:08 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/10 01:22:45 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	ft_create_canvas(char **map)
 
 static void	ft_init_fractal(t_fractal *fractal, char *name, char **data)
 {
-	fractal->zoom.x = 0.788;
-	fractal->zoom.y = 0.788;
+	fractal->zoom.x = ZOOM_INIT;
+	fractal->zoom.y = ZOOM_INIT;
 	if (!ft_strncmp(name, "julia", ft_str_len("julia")))
 	{
 		fractal->julia_const.x = ft_atof(data[2]);
