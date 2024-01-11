@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/10 10:00:28 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/11 02:54:31 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,15 +32,15 @@ RESET                       := \033[0m
 #                                   PATH                                       #
 #******************************************************************************#
 
-SRCS_MAIN_DIR               := ./src/
-SRCS_INTERNAL_DIR           := ./src/internal/
-INCS                        = ./src/ ./src/internal/ ./bonus/ ./bonus/internal/ ./lib/42_libft/include/ ./lib/MLX42/include/
-SRCS_MAIN_BONUS_DIR         := ./bonus/
-SRCS_INTERNAL_BONUS_DIR     := ./bonus/internal/
-BUILD_DIR                   := ./build/
-MLX42_DIR                   := ./lib/MLX42/
-MLX42_BUILD_DIR             := ./lib/MLX42/build/
-LIBFT_DIR                   := ./lib/42_libft/
+SRCS_MAIN_DIR               := src/
+SRCS_INTERNAL_DIR           := src/internal/
+INCS                        = src/ src/internal/ bonus/ bonus/internal/ lib/42_libft/include/ lib/MLX42/include/
+SRCS_MAIN_BONUS_DIR         := bonus/
+SRCS_INTERNAL_BONUS_DIR     := bonus/internal/
+BUILD_DIR                   := build/
+MLX42_DIR                   := lib/MLX42/
+MLX42_BUILD_DIR             := lib/MLX42/build/
+LIBFT_DIR                   := lib/42_libft/
 
 #******************************************************************************#
 #                                  COMMANDS                                    #
@@ -100,10 +100,10 @@ CLEAN_MESSAGE               := Fractol objects deleted
 CLEAN_MLX42_OBJS_MESSAGE    := Library MLX42 objects deleted
 CLEAN_MLX42_MESSAGE         := Library MLX42 deleted
 FCLEAN_MESSAGE              := Fractol deleted
-EXE_MESSAGE                 = Fractol compiled
-EXE_BONUS_MESSAGE           = Fractol bonus compiled
-COMP_MESSAGE                = Compiling
-COMP_BONUS                  = $(CYAN)[BONUS]$(RESET) $(YELLOW)Compiling
+EXE_MESSAGE                 = $(RESET)[100%%] $(GREEN)Built target fractol
+EXE_BONUS_MESSAGE           = [100%%] $(GREEN)Built target fractol_bonus
+COMP_MESSAGE                = Building C object
+COMP_BONUS                  = $(CYAN)[BONUS]$(RESET) $(YELLOW)Building C object
 
 #******************************************************************************#
 #                               COMPILATION                                    #
@@ -172,13 +172,13 @@ define comp_objs
 	$(eval COUNT=$(shell expr $(COUNT) + 1))
 	$(COMPILE_OBJS)
 	$(SLEEP)
-	printf "[%3d%%] $(YELLOW)$(COMP_MESSAGE) $(basename $(notdir $@)) \r$(RESET)\n" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
+	printf "[%3d%%] $(YELLOW)$(COMP_MESSAGE) $@ \r$(RESET)\n" $$(echo $$(($(COUNT) * 100 / $(words $(OBJS)))))
 endef
 
 define comp_exe
 	$(COMPILE_EXE)
 	$(SLEEP)
-	printf "$(GREEN)$(EXE_MESSAGE)\n$(RESET)"
+	printf "$(EXE_MESSAGE)\n$(RESET)"
 endef
 
 define clean
