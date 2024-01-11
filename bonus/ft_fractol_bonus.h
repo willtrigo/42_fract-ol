@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fractol.h                                       :+:      :+:    :+:   */
+/*   ft_fractol_bonus.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/10 08:41:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/11 08:59:39 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FRACTOL_H
-# define FT_FRACTOL_H
+#ifndef FT_FRACTOL_BONUS_H
+# define FT_FRACTOL_BONUS_H
 
 # include "MLX42/MLX42.h"
 
@@ -23,6 +23,7 @@
 # define MAX_VALUE_POLY 4
 # define SPEED 9
 # define ZOOM_INIT 0.711
+# define CONST_COLOR 0.01
 # define NAME_WINDOW "42sp - dande-je's fract-ol | type of fractal - "
 
 typedef union u_color		t_color;
@@ -61,12 +62,11 @@ struct s_canvas
 {
 	mlx_t			*mlx;
 	mlx_image_t		*canvas;
-	mlx_image_t		*bg;
 	mlx_texture_t	*icon;
 	t_fractal		*fractal;
-	double	b_shitf;
-	double	g_shitf;
-	double	r_shitf;
+	double			b_shitf;
+	double			g_shitf;
+	double			r_shitf;
 	char			*title_window;
 	char			*name;
 };
