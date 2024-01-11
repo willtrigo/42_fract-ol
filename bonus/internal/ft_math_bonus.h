@@ -6,14 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:51:44 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/10 08:47:22 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:11:33 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MATH_BONUS_H
 # define FT_MATH_BONUS_H
 
-# include <math.h>
 # include "ft_canvas_bonus.h"
 
 void		ft_get_complex(t_canvas *data, t_complex *z, t_complex *c, \

@@ -6,14 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:21:32 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/11 06:21:27 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:09:55 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CANVAS_BONUS_H
 # define FT_CANVAS_BONUS_H
 
-# include <math.h>
 # include "MLX42/MLX42.h"
 # include "ft_stdlib.h"
 # include "ft_string.h"

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/11 08:59:39 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:33:32 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 # define HEIGHT 1080
 # define MAX 2.0
 # define MIN -2.0
-# define MAX_DEFINITION 100
+# define MAX_DEFINITION 35
+# define MAX_COLOR_DEFINITION 120
 # define MAX_VALUE_POLY 4
-# define SPEED 9
+# define SPEED 20
 # define ZOOM_INIT 0.711
+# define ZOOM_IN 0x01
+# define ZOOM_OUT 0x00
 # define CONST_COLOR 0.01
 # define NAME_WINDOW "42sp - dande-je's fract-ol | type of fractal - "
 

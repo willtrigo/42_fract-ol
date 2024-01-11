@@ -6,14 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:23:33 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/11 03:03:48 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/11 12:38:49 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_COLOR_BONUS_H
 # define FT_COLOR_BONUS_H
 
-# include <math.h>
 # include "MLX42/MLX42.h"
 # include "ft_fractol_bonus.h"
 # include "ft_parse_fractal_bonus.h"
