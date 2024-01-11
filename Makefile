@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/11 02:54:31 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/11 07:06:56 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ LIBFT_DIR                   := lib/42_libft/
 RM                          := rm -rf
 MKDIR                       := mkdir -p
 MAKEFLAGS                   += --no-print-directory
-SLEEP                       := sleep 0.1
+SLEEP                       := sleep 0.01
 
 #******************************************************************************#
 #                                   FILES                                      #
