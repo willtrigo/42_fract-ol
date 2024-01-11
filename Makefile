@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/11 07:06:56 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/11 09:09:40 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ CMAKE_VERSION               := 3.16
 RED                         := \033[0;31m
 GREEN                       := \033[0;32m
 YELLOW                      := \033[0;33m
+PURPLE                      := \033[0;35m
 CYAN                        := \033[0;36m
 RESET                       := \033[0m
 
@@ -142,7 +143,7 @@ define create_dir
 endef
 
 define submodule_update_mlx42
-	printf "$(YELLOW)Building mlx42 files\n$(RESET)"
+	printf "$(PURPLE)Building library MLX42\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach -q --recursive \
 		'branch="$(git config -f $toplevel/.gitmodules submodule.MLX42)"; \
@@ -155,7 +156,7 @@ define submodule_update_mlx42
 endef
 
 define submodule_update_libft
-	printf "$(YELLOW)Building libft files\n$(RESET)"
+	printf "$(PURPLE)Building library Libft\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach -q --recursive \
 		'branch="$(git config -f $toplevel/.gitmodules submodule.42_libft)"; \
