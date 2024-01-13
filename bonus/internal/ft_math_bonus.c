@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:35:10 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/10 08:49:53 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/13 06:23:03 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_get_complex(t_canvas *data, t_complex *z, t_complex *c,
 {
 	z->x = (ft_get_z_complex(x_y->x - (WIDTH / 4), MIN, MAX, HEIGHT) \
 		* data->fractal->zoom.x) + data->fractal->offset.x;
-	z->y = (ft_get_z_complex(x_y->y + (HEIGHT / 20), MAX, MIN, HEIGHT) \
+	z->y = (ft_get_z_complex(x_y->y, MAX, MIN, HEIGHT) \
 		* data->fractal->zoom.y) + data->fractal->offset.y;
 	c->x = z->x;
 	c->y = z->y;

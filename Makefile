@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/11 09:09:40 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/13 12:06:08 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,43 +14,44 @@
 #                                REQUIREMENTS                                  #
 #******************************************************************************#
 
-LIBFT_VERSION               := 2.4.3
-MLX42_VERSION               := 2.3.3
-CMAKE_VERSION               := 3.16
+LIBFT_VERSION                   := 2.4.3
+MLX42_VERSION                   := 2.3.3
+CMAKE_VERSION                   := 3.16
 
 #******************************************************************************#
 #                                   COLOR                                      #
 #******************************************************************************#
 
-RED                         := \033[0;31m
-GREEN                       := \033[0;32m
-YELLOW                      := \033[0;33m
-PURPLE                      := \033[0;35m
-CYAN                        := \033[0;36m
-RESET                       := \033[0m
+RED                             := \033[0;31m
+GREEN                           := \033[0;32m
+YELLOW                          := \033[0;33m
+PURPLE                          := \033[0;35m
+CYAN                            := \033[0;36m
+RESET                           := \033[0m
 
 #******************************************************************************#
 #                                   PATH                                       #
 #******************************************************************************#
 
-SRCS_MAIN_DIR               := src/
-SRCS_INTERNAL_DIR           := src/internal/
-INCS                        = src/ src/internal/ bonus/ bonus/internal/ lib/42_libft/include/ lib/MLX42/include/
-SRCS_MAIN_BONUS_DIR         := bonus/
-SRCS_INTERNAL_BONUS_DIR     := bonus/internal/
-BUILD_DIR                   := build/
-MLX42_DIR                   := lib/MLX42/
-MLX42_BUILD_DIR             := lib/MLX42/build/
-LIBFT_DIR                   := lib/42_libft/
+SRCS_MAIN_DIR                   := src/
+SRCS_INTERNAL_DIR               := src/internal/
+INCS                            = src/ src/internal/ bonus/ bonus/internal/ bonus/internal/control/ lib/42_libft/include/ lib/MLX42/include/
+SRCS_MAIN_BONUS_DIR             := bonus/
+SRCS_INTERNAL_BONUS_DIR         := bonus/internal/
+SRCS_INTERNAL_CONTROL_BONUS_DIR := bonus/internal/control/
+BUILD_DIR                       := build/
+MLX42_DIR                       := lib/MLX42/
+MLX42_BUILD_DIR                 := lib/MLX42/build/
+LIBFT_DIR                       := lib/42_libft/
 
 #******************************************************************************#
 #                                  COMMANDS                                    #
 #******************************************************************************#
 
-RM                          := rm -rf
-MKDIR                       := mkdir -p
-MAKEFLAGS                   += --no-print-directory
-SLEEP                       := sleep 0.01
+RM                              := rm -rf
+MKDIR                           := mkdir -p
+MAKEFLAGS                       += --no-print-directory
+SLEEP                           := sleep 0.01
 
 #******************************************************************************#
 #                                   FILES                                      #
@@ -58,14 +59,14 @@ SLEEP                       := sleep 0.01
 
 LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
 MLX42 = $(addprefix $(MLX42_BUILD_DIR), libmlx42.a)
-LIBS                        := ./lib/42_libft/libft.a \
+LIBS                            := ./lib/42_libft/libft.a \
 	./lib/MLX42/build/libmlx42.a
 
-NAME                        = fractol
-NAME_BONUS                  = fractol_bonus
+NAME                            = fractol
+NAME_BONUS                      = fractol_bonus
 
-SRCS_FILES                  += $(addprefix $(SRCS_MAIN_DIR), main.c)
-SRCS_FILES                  += $(addprefix $(SRCS_INTERNAL_DIR), ft_assets.c \
+SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.c)
+SRCS_FILES                      += $(addprefix $(SRCS_INTERNAL_DIR), ft_assets.c \
 	ft_canvas.c \
 	ft_clean.c \
 	ft_color.c \
@@ -75,49 +76,51 @@ SRCS_FILES                  += $(addprefix $(SRCS_INTERNAL_DIR), ft_assets.c \
 	ft_render.c \
 	ft_utils.c)
 
-SRCS_BONUS_FILES            += $(addprefix $(SRCS_MAIN_BONUS_DIR), main.c)
-SRCS_BONUS_FILES            += $(addprefix $(SRCS_INTERNAL_BONUS_DIR), ft_assets_bonus.c \
+SRCS_BONUS_FILES                += $(addprefix $(SRCS_MAIN_BONUS_DIR), main.c)
+SRCS_BONUS_FILES                += $(addprefix $(SRCS_INTERNAL_BONUS_DIR), ft_assets_bonus.c \
 	ft_canvas_bonus.c \
 	ft_clean_bonus.c \
 	ft_color_bonus.c \
-	ft_control_bonus.c \
 	ft_math_bonus.c \
 	ft_parse_fractal_bonus.c \
 	ft_render_bonus.c \
 	ft_utils_bonus.c)
+SRCS_BONUS_FILES                += $(addprefix $(SRCS_INTERNAL_CONTROL_BONUS_DIR), ft_control_bonus.c \
+	ft_control_color_bonus.c \
+	ft_control_moviment_bonus.c)
 
-OBJS                        += $(SRCS_FILES:%.c=$(BUILD_DIR)%.o)
+OBJS                            += $(SRCS_FILES:%.c=$(BUILD_DIR)%.o)
 
-OBJS_BONUS                  += $(SRCS_BONUS_FILES:%.c=$(BUILD_DIR)%.o)
+OBJS_BONUS                      += $(SRCS_BONUS_FILES:%.c=$(BUILD_DIR)%.o)
 
-DEPS                        := $(OBJS:.o=.d)
+DEPS                            := $(OBJS:.o=.d)
 
 #******************************************************************************#
 #                               OUTPUTS MESSAGES                               #
 #******************************************************************************#
 
-COUNT                       = 0
-CLEAN_MESSAGE               := Fractol objects deleted
-CLEAN_MLX42_OBJS_MESSAGE    := Library MLX42 objects deleted
-CLEAN_MLX42_MESSAGE         := Library MLX42 deleted
-FCLEAN_MESSAGE              := Fractol deleted
-EXE_MESSAGE                 = $(RESET)[100%%] $(GREEN)Built target fractol
-EXE_BONUS_MESSAGE           = [100%%] $(GREEN)Built target fractol_bonus
-COMP_MESSAGE                = Building C object
-COMP_BONUS                  = $(CYAN)[BONUS]$(RESET) $(YELLOW)Building C object
+COUNT                           = 0
+CLEAN_MESSAGE                   := Fractol objects deleted
+CLEAN_MLX42_OBJS_MESSAGE        := Library MLX42 objects deleted
+CLEAN_MLX42_MESSAGE             := Library MLX42 deleted
+FCLEAN_MESSAGE                  := Fractol deleted
+EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target fractol
+EXE_BONUS_MESSAGE               = [100%%] $(GREEN)Built target fractol_bonus
+COMP_MESSAGE                    = Building C object
+COMP_BONUS                      = $(CYAN)[BONUS]$(RESET) $(YELLOW)Building C object
 
 #******************************************************************************#
 #                               COMPILATION                                    #
 #******************************************************************************#
 
-CC                          := cc
-CFLAGS                      = -Wall -Wextra -Werror -Ofast
-CPPFLAGS                    := $(addprefix -I,$(INCS)) -MMD -MP
-DFLAGS                      := -g3
-LDFLAGS                     := $(addprefix -L,$(dir $(LIBS)))
-LDLIBS                      := -lft -lmlx42 -ldl -lglfw -pthread -lm
-COMPILE_OBJS                = $(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-COMPILE_EXE                 = $(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
+CC                             := cc
+CFLAGS                         = -Wall -Wextra -Werror -Ofast
+CPPFLAGS                       := $(addprefix -I,$(INCS)) -MMD -MP
+DFLAGS                         := -g3
+LDFLAGS                        := $(addprefix -L,$(dir $(LIBS)))
+LDLIBS                         := -lft -lmlx42 -ldl -lglfw -pthread -lm
+COMPILE_OBJS                   = $(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+COMPILE_EXE                    = $(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
 
 #******************************************************************************#
 #                                   DEFINE                                     #
@@ -128,10 +131,10 @@ ifdef WITH_DEBUG
 endif
 
 ifdef WITH_BONUS
-	NAME                    = $(NAME_BONUS)
-	OBJS                    = $(OBJS_BONUS)
-	COMP_MESSAGE            = $(COMP_BONUS)
-	EXE_MESSAGE             = $(EXE_BONUS_MESSAGE)
+	NAME                       = $(NAME_BONUS)
+	OBJS                       = $(OBJS_BONUS)
+	COMP_MESSAGE               = $(COMP_BONUS)
+	EXE_MESSAGE                = $(EXE_BONUS_MESSAGE)
 endif
 
 #******************************************************************************#
@@ -147,7 +150,10 @@ define submodule_update_mlx42
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach -q --recursive \
 		'branch="$(git config -f $toplevel/.gitmodules submodule.MLX42)"; \
-		git pull origin master; git fetch; git checkout v$(MLX42_VERSION)' >/dev/null 2>&1 || true
+		git pull origin master; \
+		git fetch; \
+		git checkout v$(MLX42_VERSION)' \
+		>/dev/null 2>&1 || true
 	sed -i 's/3\.18/$(CMAKE_VERSION)/g' $(MLX42_DIR)CMakeLists.txt >/dev/null 2>&1 || true
 	$(SLEEP)
 	cd $(MLX42_DIR) && cmake -B build -DDEBUG=1 >/dev/null 2>&1 || true
@@ -160,7 +166,10 @@ define submodule_update_libft
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach -q --recursive \
 		'branch="$(git config -f $toplevel/.gitmodules submodule.42_libft)"; \
-		git pull origin main; git fetch; git checkout v$(LIBFT_VERSION)' >/dev/null 2>&1 || true
+		git pull origin main; \
+		git fetch; \
+		git checkout v$(LIBFT_VERSION)' \
+		>/dev/null 2>&1 || true
 	$(SLEEP)
 	$(MAKE) -C $(LIBFT_DIR)
 endef

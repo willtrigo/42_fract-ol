@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/11 09:00:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:04:46 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ void	ft_create_canvas(char **map)
 
 	data.name = ft_strdup(map[1]);
 	data.title_window = ft_strjoin(NAME_WINDOW, data.name);
-	data.mlx = mlx_init(WIDTH, HEIGHT, data.title_window, true);
+	data.mlx = mlx_init(WIDTH, HEIGHT, data.title_window, false);
 	data.canvas = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	data.fractal = ft_calloc(1, sizeof(t_fractal));
 	ft_init_fractal(&data, data.name, map);
+	data.render = RENDER_ON;
 	ft_render_fractal(&data);
 	mlx_image_to_window(data.mlx, data.canvas, 0, 0);
 	ft_load_assets(&data);
@@ -41,7 +42,7 @@ void	ft_reset_fractal(t_canvas *data)
 	data->fractal->zoom.y = ZOOM_INIT;
 	data->fractal->offset.x = 0.0;
 	data->fractal->offset.y = 0.0;
-	data->r_shitf = 3.0;
+	data->r_shitf = 10.9;
 	data->b_shitf = 0.0;
 	data->g_shitf = 0.0;
 }
