@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/14 12:31:31 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:36:41 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ZOOM_OUT 0x00
 # define ZOOM_MAX 0.000000000000005642
 # define CONST_COLOR 0.01
+# define CONST_ZOOM 0.01
 # define RENDER_ON 0X01
 # define RENDER_OFF 0X00
 
@@ -73,6 +74,8 @@ struct s_canvas
 	double			b_shitf;
 	double			g_shitf;
 	double			r_shitf;
+	int32_t			mouse_x;
+	int32_t			mouse_y;
 	char			*title_window;
 	char			*name;
 	uint8_t			render;

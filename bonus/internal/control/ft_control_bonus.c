@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/13 12:04:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:53:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,13 @@ void	ft_scroll_hook(double xdelta, double ydelta, t_canvas *data)
 {
 	(void)xdelta;
 	if (ydelta > 0.0 && !data->render)
+	{
 		ft_zoom_hook(ZOOM_IN, data);
+		ft_zoom_offset(ZOOM_IN, data);
+	}
 	else if (ydelta < 0.0 && !data->render)
+	{
 		ft_zoom_hook(ZOOM_OUT, data);
+		ft_zoom_offset(ZOOM_OUT, data);
+	}
 }

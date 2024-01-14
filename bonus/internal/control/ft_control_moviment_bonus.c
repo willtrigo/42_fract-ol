@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:47:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/13 12:04:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:00:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,25 @@ void	ft_moviment_hook(mlx_key_data_t key, t_canvas *data)
 {
 	ft_offset(key, data);
 	ft_zoom_in_out(key, data);
+}
+
+void	ft_zoom_offset(int8_t zoom_in_out, t_canvas *data)
+{
+	mlx_get_mouse_pos(data->mlx, &data->mouse_x, &data->mouse_y);
+	if (zoom_in_out == ZOOM_IN)
+	{
+		data->fractal->offset.x += (CONST_ZOOM * data->fractal->zoom.x) \
+			* ((data->mouse_x - WIDTH / 2) / SPEED);
+		data->fractal->offset.y -= (CONST_ZOOM * data->fractal->zoom.y) \
+			* ((data->mouse_y - HEIGHT / 2) / SPEED);
+	}
+	else if (zoom_in_out == ZOOM_OUT)
+	{
+		data->fractal->offset.x -= (CONST_ZOOM * data->fractal->zoom.x) \
+			* ((data->mouse_x - WIDTH / 2) / SPEED);
+		data->fractal->offset.y += (CONST_ZOOM * data->fractal->zoom.y) \
+			* ((data->mouse_y - HEIGHT / 2) / SPEED);
+	}
 }
 
 static void	ft_offset(mlx_key_data_t key, t_canvas *data)

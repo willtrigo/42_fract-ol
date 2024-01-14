@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:48:11 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/12 06:55:24 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:54:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 
 void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas *data);
 void	ft_moviment_hook(mlx_key_data_t key, t_canvas *data);
+void	ft_zoom_offset(int8_t zoom_in_out, t_canvas *data);
 
 #endif
