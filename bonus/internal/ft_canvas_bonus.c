@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/13 12:04:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/14 08:28:04 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	ft_create_canvas(char **map)
 	mlx_key_hook(data.mlx, (mlx_keyfunc)ft_key_hook, &data);
 	mlx_scroll_hook(data.mlx, (mlx_scrollfunc)ft_scroll_hook, &data);
 	mlx_loop(data.mlx);
-	mlx_terminate(data.mlx);
 	ft_clean(&data);
+	mlx_terminate(data.mlx);
 }
 
 void	ft_reset_fractal(t_canvas *data)
