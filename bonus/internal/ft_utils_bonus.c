@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 09:29:53 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:36:40 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,28 @@
 
 void	ft_help(void)
 {
-	ft_putstr_fd("== FRACTOL GUIDE ==\n", STDOUT_FILENO);
+	ft_putstr_fd("\t\t\t", STDOUT_FILENO);
+	ft_putstr_fd("\033[0;36m== FRACTOL GUIDE ==\033[0m\n", STDOUT_FILENO);
+	ft_putstr_fd("----------------------------------", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
-	ft_putstr_fd("Arguments Guide:\n\n", STDOUT_FILENO);
+	ft_putstr_fd("\t\t\t  ", STDOUT_FILENO);
+	ft_putstr_fd("\033[0;33mArguments Guide:\033[0m\n\n", STDOUT_FILENO);
 	ft_putstr_fd("./fractol mandelbrot\n", STDOUT_FILENO);
+	ft_putstr_fd("./fractol tricorn\n", STDOUT_FILENO);
 	ft_putstr_fd("./fractol julia X.XXXXX X.XXXXX\n", STDOUT_FILENO);
+	ft_putstr_fd("----------------------------------", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
-	ft_putstr_fd("Julia tips: \n\n", STDOUT_FILENO);
-	ft_putstr_fd("(-0.835, -0.2321)\t(0.285, 0.0)\t(0.285, 0.01)\n", \
+	ft_putstr_fd("\t\t\t    ", STDOUT_FILENO);
+	ft_putstr_fd("\033[0;33mJulia tips:\033[0m\n\n", STDOUT_FILENO);
+	ft_putstr_fd("(-0.835,   -0.2321)\t(0.285,  0.0)\t\t(0.285,    0.01)\n", \
 		STDOUT_FILENO);
-	ft_putstr_fd("(-0.5239, -0.69969)\t(0.45, 0.1428)\t", STDOUT_FILENO);
+	ft_putstr_fd("(-0.5239,  -0.69969)\t(0.45,   0.1428)\t", STDOUT_FILENO);
 	ft_putstr_fd("(-0.70469, -0.5239)\n", STDOUT_FILENO);
 	ft_putstr_fd("(-0.70176, -0.3842)\t(-0.312, 0.0)\n", STDOUT_FILENO);
-	ft_putstr_fd("\nAny range between 2 and -2 its a fractal valid\n", \
+	ft_putstr_fd("\n\033[0;32mAny range between 2 and ", STDOUT_FILENO);
+	ft_putstr_fd("-2, it's a fractal valid in Julia arguments\033[0m\n", \
 		STDOUT_FILENO);
+	ft_putstr_fd("----------------------------------", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
 }
 
@@ -47,4 +55,15 @@ void	ft_sleep(t_canvas *data)
 		i++;
 	}
 	data->render = RENDER_OFF;
+}
+
+void	ft_output_error(char *str_title, char *str_message)
+{
+	ft_help();
+	ft_putstr_fd("\033[0;31m", STDERR_FILENO);
+	ft_putstr_fd(str_title, STDERR_FILENO);
+	ft_putstr_fd("\033[0m - ", STDERR_FILENO);
+	ft_putstr_fd(str_message, STDERR_FILENO);
+	ft_putstr_fd("\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }

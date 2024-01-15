@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/12 05:04:21 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:09:55 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ static void	ft_handle_pixel(int x, int y, t_canvas *data)
 	ft_get_complex(data, &z, &c, &x_y);
 	while (++i < MAX_DEFINITION)
 	{
-		z = ft_sum_complex(ft_square_complex(z), c);
+		if (!ft_strncmp(data->name, "tricorn", ft_str_len("tricorn")))
+			z = ft_sum_complex(ft_square_z_complex(z, MIN), c);
+		else
+			z = ft_sum_complex(ft_square_z_complex(z, MAX), c);
 		if (z.x * z.x + z.y * z.y > MAX_VALUE_POLY)
 		{
 			mlx_put_pixel(data->canvas, x, y, ft_bernstein_poly(i, 0xFF, data));

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/14 16:36:41 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:12:27 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 # define MAX_COLOR_DEFINITION 150
 # define MAX_VALUE_POLY 4
 # define SPEED 20
-# define ZOOM_INIT 0.711
+# define ZOOM_INIT 0.618
+# define ZOOM_TRICORN_INIT 0.911
 # define ZOOM_IN 0x01
 # define ZOOM_OUT 0x00
 # define ZOOM_MAX 0.000000000000005642
@@ -58,7 +59,7 @@ struct s_fractal
 {
 	t_complex	zoom;
 	t_complex	offset;
-	t_complex	julia_const;
+	t_complex	c;
 	int32_t		mouse_x;
 	int32_t		mouse_y;
 	t_color		color;
@@ -74,6 +75,7 @@ struct s_canvas
 	double			b_shitf;
 	double			g_shitf;
 	double			r_shitf;
+	double			zoom_init;
 	int32_t			mouse_x;
 	int32_t			mouse_y;
 	char			*title_window;

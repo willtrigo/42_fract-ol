@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:45:53 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/12 06:43:33 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:01:09 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 # include "MLX42/MLX42.h"
 # include "ft_fractol_bonus.h"
-# include "ft_canvas_bonus.h"
 # include "ft_color_bonus.h"
 # include "ft_math_bonus.h"
-# include "ft_utils.h"
+# include "ft_utils_bonus.h"
 
 void	ft_render_fractal(t_canvas *data);
 

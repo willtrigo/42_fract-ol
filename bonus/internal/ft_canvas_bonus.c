@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/14 12:54:10 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:12:45 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ void	ft_create_canvas(char **map)
 
 void	ft_reset_fractal(t_canvas *data)
 {
-	data->fractal->zoom.x = ZOOM_INIT;
-	data->fractal->zoom.y = ZOOM_INIT;
+	data->zoom_init = ZOOM_INIT;
+	if (!ft_strncmp(data->name, "tricorn", ft_str_len("tricorn")))
+		data->zoom_init = ZOOM_TRICORN_INIT;
+	data->fractal->zoom.x = data->zoom_init;
+	data->fractal->zoom.y = data->zoom_init;
 	data->fractal->offset.x = 0.0;
 	data->fractal->offset.y = 0.0;
 	data->r_shitf = 10.9;
@@ -54,7 +57,7 @@ static void	ft_init_fractal(t_canvas *data, char *name, char **value)
 	ft_reset_fractal(data);
 	if (!ft_strncmp(name, "julia", ft_str_len("julia")))
 	{
-		data->fractal->julia_const.x = ft_atof(value[2]);
-		data->fractal->julia_const.y = ft_atof(value[3]);
+		data->fractal->c.x = ft_atof(value[2]);
+		data->fractal->c.y = ft_atof(value[3]);
 	}
 }
