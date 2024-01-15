@@ -6,14 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:45:53 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:01:09 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:06:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_RENDER_BONUS_H
 # define FT_RENDER_BONUS_H
 
-# include "MLX42/MLX42.h"
 # include "ft_fractol_bonus.h"
 # include "ft_color_bonus.h"
 # include "ft_math_bonus.h"
