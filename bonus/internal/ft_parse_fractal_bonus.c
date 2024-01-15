@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:54:16 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 09:29:05 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:19:30 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ static void	ft_parse_julia(char **map)
 {
 	if (!map[2] || !ft_isdouble(map[2]))
 		ft_output_error("Invalid Julia", "constant real invalid.");
-	else if ((ft_atof(map[2]) > 2.0) || (ft_atof(map[2]) < -2.0))
+	else if ((ft_atof(map[2]) > MAX) || (ft_atof(map[2]) < MIN))
 		ft_output_error("Invalid Julia", "constant real invalid.");
 	else if (!map[3] || !ft_isdouble(map[3]))
 		ft_output_error("Invalid Julia", "constant imaginary invalid.");
-	else if ((ft_atof(map[3]) > 2.0) || (ft_atof(map[3]) < -2.0))
+	else if ((ft_atof(map[3]) > MAX) || (ft_atof(map[3]) < MIN))
 		ft_output_error("Invalid Julia", "constant imaginary invalid.");
 }
 
