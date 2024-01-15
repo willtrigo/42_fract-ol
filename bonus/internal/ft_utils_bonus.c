@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/14 11:18:07 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 09:29:53 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ void	ft_help(void)
 	ft_putstr_fd("./fractol julia X.XXXXX X.XXXXX\n", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
 	ft_putstr_fd("Julia tips: \n\n", STDOUT_FILENO);
-	ft_putstr_fd("(-0.5239, -0.69969)\t(0.285, 0.0)\t(0.285, 0.01)\n", \
+	ft_putstr_fd("(-0.835, -0.2321)\t(0.285, 0.0)\t(0.285, 0.01)\n", \
 		STDOUT_FILENO);
-	ft_putstr_fd("(-0.835, -0.2321)\t(0.45, 0.1428)\t", STDOUT_FILENO);
+	ft_putstr_fd("(-0.5239, -0.69969)\t(0.45, 0.1428)\t", STDOUT_FILENO);
 	ft_putstr_fd("(-0.70469, -0.5239)\n", STDOUT_FILENO);
 	ft_putstr_fd("(-0.70176, -0.3842)\t(-0.312, 0.0)\n", STDOUT_FILENO);
+	ft_putstr_fd("\nAny range between 2 and -2 its a fractal valid\n", \
+		STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
 }
 
