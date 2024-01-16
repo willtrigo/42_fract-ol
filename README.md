@@ -10,7 +10,7 @@
 	<img alt="Language" src="https://img.shields.io/badge/C-Language?&label=Language&labelColor=gray&color=dodgerblue">
 </picture>
 <picture >
-	<img alt="Status" src="https://img.shields.io/badge/WIP-Status?&label=Status&labelColor=gray&color=yellow">
+	<img alt="Status" src="https://img.shields.io/badge/Completed-Status?&label=Status&labelColor=gray&color=green">
 </picture>
 
 ##
