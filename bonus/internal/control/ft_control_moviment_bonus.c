@@ -6,16 +6,16 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:47:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 17:49:25 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:53:54 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_control_moviment_bonus.h"
 
-static void	ft_offset(mlx_key_data_t key, t_canvas *data);
-static void	ft_zoom_in_out(mlx_key_data_t key, t_canvas *data);
+static void	ft_offset(mlx_key_data_t key, t_canvas_bonus *data);
+static void	ft_zoom_in_out(mlx_key_data_t key, t_canvas_bonus *data);
 
-void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas *data)
+void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas_bonus *data)
 {
 	if (!data->render)
 	{
@@ -39,13 +39,13 @@ void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas *data)
 	}
 }
 
-void	ft_moviment_hook(mlx_key_data_t key, t_canvas *data)
+void	ft_moviment_hook(mlx_key_data_t key, t_canvas_bonus *data)
 {
 	ft_offset(key, data);
 	ft_zoom_in_out(key, data);
 }
 
-void	ft_zoom_offset(int8_t zoom_in_out, t_canvas *data)
+void	ft_zoom_offset(int8_t zoom_in_out, t_canvas_bonus *data)
 {
 	mlx_get_mouse_pos(data->mlx, &data->mouse_x, &data->mouse_y);
 	if (zoom_in_out == ZOOM_IN)
@@ -64,7 +64,7 @@ void	ft_zoom_offset(int8_t zoom_in_out, t_canvas *data)
 	}
 }
 
-static void	ft_offset(mlx_key_data_t key, t_canvas *data)
+static void	ft_offset(mlx_key_data_t key, t_canvas_bonus *data)
 {
 	if (key.key == MLX_KEY_RIGHT && !data->render && key.action == MLX_RELEASE)
 	{
@@ -92,7 +92,7 @@ static void	ft_offset(mlx_key_data_t key, t_canvas *data)
 	}
 }
 
-static void	ft_zoom_in_out(mlx_key_data_t key, t_canvas *data)
+static void	ft_zoom_in_out(mlx_key_data_t key, t_canvas_bonus *data)
 {
 	if (key.key == MLX_KEY_EQUAL && !data->render)
 		ft_zoom_hook(ZOOM_IN, data);

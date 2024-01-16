@@ -6,13 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:32:26 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/11 12:48:35 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:53:01 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_color_bonus.h"
 
-int32_t	ft_bernstein_poly(uint32_t i, int32_t a, t_canvas *data)
+int32_t	ft_bernstein_poly(uint32_t i, int32_t a, t_canvas_bonus *data)
 {
 	double	r;
 	double	b;
@@ -28,7 +28,7 @@ int32_t	ft_bernstein_poly(uint32_t i, int32_t a, t_canvas *data)
 	return (color);
 }
 
-t_color	ft_color(int8_t r, int8_t g, int8_t b, int8_t a)
+t_color_bonus	ft_color(int8_t r, int8_t g, int8_t b, int8_t a)
 {
-	return ((t_color){.r = r, .g = g, .b = b, .a = a});
+	return ((t_color_bonus){.r = r, .g = g, .b = b, .a = a});
 }

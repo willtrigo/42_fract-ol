@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:36:40 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:50:20 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_help(void)
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
 }
 
-void	ft_sleep(t_canvas *data)
+void	ft_sleep(t_canvas_bonus *data)
 {
 	volatile int	i;
 	volatile int	j;

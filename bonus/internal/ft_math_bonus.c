@@ -6,14 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:35:10 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:08:12 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:58:52 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math_bonus.h"
 
-void	ft_get_complex(t_canvas *data, t_complex *z, t_complex *c,
-			t_complex *x_y)
+void	ft_get_complex(t_canvas_bonus *data, t_complex_bonus *z, \
+			t_complex_bonus *c, t_complex_bonus *x_y)
 {
 	if (!ft_strncmp(data->name, "mandelbrot", ft_str_len("mandelbrot")))
 		z->x = (ft_get_z_complex(x_y->x - (WIDTH / 3) - 17, MIN, MAX, HEIGHT) \
@@ -37,18 +37,18 @@ double	ft_get_z_complex(double offset, double min, double max, double size)
 	return ((max - min) * (offset - 0) / (size - 0) + min);
 }
 
-t_complex	ft_sum_complex(t_complex z, t_complex c)
+t_complex_bonus	ft_sum_complex(t_complex_bonus z, t_complex_bonus c)
 {
-	t_complex	sum_complex;
+	t_complex_bonus	sum_complex;
 
 	sum_complex.x = z.x + c.x;
 	sum_complex.y = z.y + c.y;
 	return (sum_complex);
 }
 
-t_complex	ft_square_z_complex(t_complex z, double value)
+t_complex_bonus	ft_square_z_complex(t_complex_bonus z, double value)
 {
-	t_complex	square_z;
+	t_complex_bonus	square_z;
 
 	square_z.x = (z.x * z.x) - (z.y * z.y);
 	square_z.y = value * z.x * z.y;

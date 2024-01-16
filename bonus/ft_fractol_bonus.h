@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:12:27 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:58:26 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 # define RENDER_ON 0X01
 # define RENDER_OFF 0X00
 
-typedef union u_color		t_color;
-union u_color
+typedef union u_color_bonus		t_color_bonus;
+union u_color_bonus
 {
 	uint32_t	value;
 	struct
@@ -47,31 +47,31 @@ union u_color
 	};
 };
 
-typedef struct s_complex	t_complex;
-struct s_complex
+typedef struct s_complex_bonus	t_complex_bonus;
+struct s_complex_bonus
 {
 	double	x;
 	double	y;
 };
 
-typedef struct s_fractal	t_fractal;
-struct s_fractal
+typedef struct s_fractal_bonus	t_fractal_bonus;
+struct s_fractal_bonus
 {
-	t_complex	zoom;
-	t_complex	offset;
-	t_complex	c;
-	int32_t		mouse_x;
-	int32_t		mouse_y;
-	t_color		color;
+	t_complex_bonus	zoom;
+	t_complex_bonus	offset;
+	t_complex_bonus	c;
+	int32_t			mouse_x;
+	int32_t			mouse_y;
+	t_color_bonus	color;
 };
 
-typedef struct s_canvas		t_canvas;
-struct s_canvas
+typedef struct s_canvas_bonus	t_canvas_bonus;
+struct s_canvas_bonus
 {
 	mlx_t			*mlx;
 	mlx_image_t		*canvas;
 	mlx_texture_t	*icon;
-	t_fractal		*fractal;
+	t_fractal_bonus	*fractal;
 	double			b_shitf;
 	double			g_shitf;
 	double			r_shitf;

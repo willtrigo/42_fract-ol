@@ -6,15 +6,15 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:09:55 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:00:01 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_render_bonus.h"
 
-static void	ft_handle_pixel(int x, int y, t_canvas *data);
+static void	ft_handle_pixel(int x, int y, t_canvas_bonus *data);
 
-void	ft_render_fractal(t_canvas *data)
+void	ft_render_fractal(t_canvas_bonus *data)
 {
 	int	x;
 	int	y;
@@ -29,12 +29,12 @@ void	ft_render_fractal(t_canvas *data)
 	ft_sleep(data);
 }
 
-static void	ft_handle_pixel(int x, int y, t_canvas *data)
+static void	ft_handle_pixel(int x, int y, t_canvas_bonus *data)
 {
-	t_complex	z;
-	t_complex	c;
-	t_complex	x_y;
-	int32_t		i;
+	t_complex_bonus	z;
+	t_complex_bonus	c;
+	t_complex_bonus	x_y;
+	int32_t			i;
 
 	i = -1;
 	x_y.x = x;

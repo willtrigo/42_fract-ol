@@ -6,13 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/14 16:53:05 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:54:50 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_control_bonus.h"
 
-void	ft_key_hook(mlx_key_data_t key, t_canvas *data)
+void	ft_key_hook(mlx_key_data_t key, t_canvas_bonus *data)
 {
 	if (key.key == MLX_KEY_ESCAPE)
 	{
@@ -25,7 +25,7 @@ void	ft_key_hook(mlx_key_data_t key, t_canvas *data)
 	ft_color_hook(key, data);
 }
 
-void	ft_scroll_hook(double xdelta, double ydelta, t_canvas *data)
+void	ft_scroll_hook(double xdelta, double ydelta, t_canvas_bonus *data)
 {
 	(void)xdelta;
 	if (ydelta > 0.0 && !data->render)

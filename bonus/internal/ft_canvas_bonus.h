@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:21:32 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:14:47 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:53:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 # include "ft_render_bonus.h"
 
 void	ft_create_canvas(char **map);
-void	ft_reset_fractal(t_canvas *data);
+void	ft_reset_fractal(t_canvas_bonus *data);
 
 #endif

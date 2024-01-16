@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:51:44 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:51:58 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:51:41 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include "ft_string.h"
 # include "ft_fractol_bonus.h"
 
-void		ft_get_complex(t_canvas *data, t_complex *z, t_complex *c, \
-				t_complex *x_y);
-double		ft_get_z_complex(double offset, double min, double max, \
-				double zoom);
-t_complex	ft_sum_complex(t_complex z, t_complex c);
-t_complex	ft_square_z_complex(t_complex z, double value);
+void			ft_get_complex(t_canvas_bonus *data, t_complex_bonus *z, \
+					t_complex_bonus *c, t_complex_bonus *x_y);
+double			ft_get_z_complex(double offset, double min, double max, \
+					double zoom);
+t_complex_bonus	ft_sum_complex(t_complex_bonus z, t_complex_bonus c);
+t_complex_bonus	ft_square_z_complex(t_complex_bonus z, double value);
 
 #endif

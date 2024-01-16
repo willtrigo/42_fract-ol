@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:48:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:16:15 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:54:44 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ft_control_color_bonus.h"
 # include "ft_control_moviment_bonus.h"
 
-void	ft_key_hook(mlx_key_data_t key, t_canvas *data);
-void	ft_scroll_hook(double xdelta, double ydelta, t_canvas *data);
+void	ft_key_hook(mlx_key_data_t key, t_canvas_bonus *data);
+void	ft_scroll_hook(double xdelta, double ydelta, t_canvas_bonus *data);
 
 #endif

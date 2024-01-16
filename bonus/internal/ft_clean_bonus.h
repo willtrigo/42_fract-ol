@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:58:20 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:50:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:53:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include "ft_stdlib.h"
 # include "ft_fractol_bonus.h"
 
-void	ft_clean(t_canvas *data);
+void	ft_clean(t_canvas_bonus *data);
 
 #endif

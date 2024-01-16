@@ -6,23 +6,23 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:12:45 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:55:17 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_canvas_bonus.h"
 
-static void	ft_init_fractal(t_canvas *data, char *name, char **value);
+static void	ft_init_fractal(t_canvas_bonus *data, char *name, char **value);
 
 void	ft_create_canvas(char **map)
 {
-	t_canvas	data;
+	t_canvas_bonus	data;
 
 	data.name = ft_strdup(map[1]);
 	data.title_window = ft_strjoin(NAME_WINDOW, data.name);
 	data.mlx = mlx_init(WIDTH, HEIGHT, data.title_window, false);
 	data.canvas = mlx_new_image(data.mlx, WIDTH, HEIGHT);
-	data.fractal = ft_calloc(1, sizeof(t_fractal));
+	data.fractal = ft_calloc(1, sizeof(t_fractal_bonus));
 	ft_init_fractal(&data, data.name, map);
 	data.render = RENDER_ON;
 	data.mouse_x = 0;
@@ -38,7 +38,7 @@ void	ft_create_canvas(char **map)
 	mlx_terminate(data.mlx);
 }
 
-void	ft_reset_fractal(t_canvas *data)
+void	ft_reset_fractal(t_canvas_bonus *data)
 {
 	data->zoom_init = ZOOM_INIT;
 	if (!ft_strncmp(data->name, "tricorn", ft_str_len("tricorn")))
@@ -52,7 +52,7 @@ void	ft_reset_fractal(t_canvas *data)
 	data->g_shitf = 0.0;
 }
 
-static void	ft_init_fractal(t_canvas *data, char *name, char **value)
+static void	ft_init_fractal(t_canvas_bonus *data, char *name, char **value)
 {
 	ft_reset_fractal(data);
 	if (!ft_strncmp(name, "julia", ft_str_len("julia")))

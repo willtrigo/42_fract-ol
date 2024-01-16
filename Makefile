@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/15 08:12:48 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/15 21:04:32 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -193,10 +193,10 @@ endef
 
 define clean
 	$(RM) $(BUILD_DIR)
-#	$(MAKE) fclean -C $(LIBFT_DIR)
-#	$(RM) $(MLX42_BUILD_DIR)
-#	printf "$(RED)$(CLEAN_MLX42_OBJS_MESSAGE)\n$(RESET)"
-#	printf "$(RED)$(CLEAN_MLX42_MESSAGE)\n$(RESET)"
+	$(MAKE) fclean -C $(LIBFT_DIR)
+	$(RM) $(MLX42_BUILD_DIR)
+	printf "$(RED)$(CLEAN_MLX42_OBJS_MESSAGE)\n$(RESET)"
+	printf "$(RED)$(CLEAN_MLX42_MESSAGE)\n$(RESET)"
 	$(SLEEP)
 	printf "$(RED)$(CLEAN_MESSAGE)\n$(RESET)"
 endef
