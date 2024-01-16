@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:55:53 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 06:12:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:18:31 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ int32_t	main(int32_t argc, char **argv)
 {
 	if (argc < 2 || argc > 4)
 	{
-		ft_putstr_fd("\033[0;31mUsage:", STDERR_FILENO);
-		ft_putstr_fd("\033[0m ./fractol [fractal type] [fractal constant]\n", \
-			STDERR_FILENO);
+		ft_output_error("Invalid Fractal", \
+			"./fractol [fractal type] [fractal constant].");
 		ft_help();
 		exit(EXIT_FAILURE);
 	}

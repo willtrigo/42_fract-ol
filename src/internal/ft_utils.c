@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 05:38:04 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:22:17 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,55 @@
 
 void	ft_help(void)
 {
-	ft_putstr_fd("== FRACTOL GUIDE ==\n", STDOUT_FILENO);
+	ft_putstr_fd("\t\t\t", STDOUT_FILENO);
+	ft_putstr_fd("\033[0;36m== FRACTOL GUIDE ==\033[0m\n", STDOUT_FILENO);
+	ft_putstr_fd("----------------------------------", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
-	ft_putstr_fd("Arguments Guide:\n\n", STDOUT_FILENO);
+	ft_putstr_fd("\t\t\t  ", STDOUT_FILENO);
+	ft_putstr_fd("\033[0;33mArguments Guide:\033[0m\n\n", STDOUT_FILENO);
 	ft_putstr_fd("./fractol mandelbrot\n", STDOUT_FILENO);
 	ft_putstr_fd("./fractol julia X.XXXXX X.XXXXX\n", STDOUT_FILENO);
+	ft_putstr_fd("----------------------------------", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
-	ft_putstr_fd("Julia tips: \n\n", STDOUT_FILENO);
-	ft_putstr_fd("(-0.391, -0.587)\t(-0.4, -0.6)\t\t(-0.835, -0.2321)\n", \
+	ft_putstr_fd("\t\t\t    ", STDOUT_FILENO);
+	ft_putstr_fd("\033[0;33mJulia tips:\033[0m\n\n", STDOUT_FILENO);
+	ft_putstr_fd("(-0.835,   -0.2321)\t(0.285,  0.0)\t\t(0.285,    0.01)\n", \
 		STDOUT_FILENO);
-	ft_putstr_fd("(0.285, 0.0)\t\t(0.285, 0.01)\t\t(-0.74, 0.12)\n", \
+	ft_putstr_fd("(-0.5239,  -0.69969)\t(0.45,   0.1428)\t", STDOUT_FILENO);
+	ft_putstr_fd("(-0.70469, -0.5239)\n", STDOUT_FILENO);
+	ft_putstr_fd("(-0.70176, -0.3842)\t(-0.312, 0.0)\n", STDOUT_FILENO);
+	ft_putstr_fd("\n\033[0;32mAny range between 2 and ", STDOUT_FILENO);
+	ft_putstr_fd("-2, it's a fractal valid in Julia arguments\033[0m\n", \
 		STDOUT_FILENO);
-	ft_putstr_fd("(-1.312, 0.0)\t\t(0.37, -0.28)\t\t(0.45, 0.1428)\n", \
-		STDOUT_FILENO);
-	ft_putstr_fd("(-0.70176, -0.3842)\t(-0.70469, -0.5239)\t", STDOUT_FILENO);
-	ft_putstr_fd("(-0.5239, 0.69969)\n", STDOUT_FILENO);
+	ft_putstr_fd("----------------------------------", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
+}
+
+void	ft_sleep(t_canvas *data)
+{
+	volatile int	i;
+	volatile int	j;
+	volatile int	millisecond_time;
+
+	i = 0;
+	j = 0;
+	millisecond_time = 10000 * 2000;
+	while (i < millisecond_time)
+	{
+		while (j < 1000)
+			j++;
+		i++;
+	}
+	data->render = RENDER_OFF;
+}
+
+void	ft_output_error(char *str_title, char *str_message)
+{
+	ft_help();
+	ft_putstr_fd("\033[0;31m", STDERR_FILENO);
+	ft_putstr_fd(str_title, STDERR_FILENO);
+	ft_putstr_fd("\033[0m - ", STDERR_FILENO);
+	ft_putstr_fd(str_message, STDERR_FILENO);
+	ft_putstr_fd("\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }

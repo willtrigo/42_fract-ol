@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:36:12 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/09 06:01:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:37:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_clean(t_canvas *data)
 {
 	ft_clean_fractal_assets(data);
 	ft_clean_fractal_struct(data);
+	mlx_delete_image(data->mlx, data->canvas);
 }
 
 static void	ft_clean_fractal_assets(t_canvas *data)
