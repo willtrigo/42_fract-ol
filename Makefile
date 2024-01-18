@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/18 07:48:44 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/18 11:02:06 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,9 +117,10 @@ CC                             := cc
 CFLAGS                         = -Wall -Wextra -Werror -Ofast
 CPPFLAGS                       := $(addprefix -I,$(INCS)) -MMD -MP
 DFLAGS                         := -g3
+LFLAGS                         := -march=native
 LDFLAGS                        := $(addprefix -L,$(dir $(LIBS)))
 LDLIBS                         := -lft -lmlx42 -ldl -lglfw -pthread -lm
-COMPILE_OBJS                   = $(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+COMPILE_OBJS                   = $(CC) $(CFLAGS) $(LFLAGS) $(CPPFLAGS) -c $< -o $@
 COMPILE_EXE                    = $(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
 
 #******************************************************************************#
