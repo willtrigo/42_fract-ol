@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:54:16 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 19:41:39 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/18 03:09:46 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ void	ft_parse_fractal(int32_t argc, char **map)
 			ft_output_error("Invalid Tricorn", "Too many argumments.");
 	}
 	else
-	{
 		ft_output_error("Invalid Fractal", \
 			"./fractol [fractal type] [fractal constant].");
-		exit(EXIT_FAILURE);
-	}
 }
 
 static void	ft_parse_julia(char **map)
