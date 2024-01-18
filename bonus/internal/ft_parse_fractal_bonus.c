@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:54:16 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/18 03:09:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/18 03:23:07 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_parse_fractal(int32_t argc, char **map)
 	}
 	else
 		ft_output_error("Invalid Fractal", \
-			"./fractol [fractal type] [fractal constant].");
+			"./fractol [fractal type] [fractal constant]");
 }
 
 static void	ft_parse_julia(char **map)
