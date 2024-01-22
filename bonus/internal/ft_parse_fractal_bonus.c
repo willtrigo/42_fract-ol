@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:54:16 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/18 03:23:07 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:04:03 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_parse_fractal_bonus.h"
+#include "internal/ft_parse_fractal_bonus.h"
 
 static void	ft_parse_julia(char **map);
 

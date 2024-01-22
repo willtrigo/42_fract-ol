@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:54:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:07:09 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_control_bonus.h"
+#include "internal/control/ft_control_bonus.h"
 
 void	ft_key_hook(mlx_key_data_t key, t_canvas_bonus *data)
 {

@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:35:10 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:58:52 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:04:30 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math_bonus.h"
+#include "internal/ft_math_bonus.h"
 
 void	ft_get_complex(t_canvas_bonus *data, t_complex_bonus *z, \
 			t_complex_bonus *c, t_complex_bonus *x_y)

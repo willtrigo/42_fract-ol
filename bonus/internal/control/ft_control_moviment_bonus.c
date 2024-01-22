@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:47:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:53:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:09:06 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_control_moviment_bonus.h"
+#include "internal/control/ft_control_moviment_bonus.h"
 
 static void	ft_offset(mlx_key_data_t key, t_canvas_bonus *data);
 static void	ft_zoom_in_out(mlx_key_data_t key, t_canvas_bonus *data);

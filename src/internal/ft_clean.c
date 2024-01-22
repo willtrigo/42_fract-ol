@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:36:12 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:37:22 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:50:47 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_clean.h"
+#include "internal/ft_clean.h"
 
 static void	ft_clean_fractal_assets(t_canvas *data);
 static void	ft_clean_fractal_struct(t_canvas *data);

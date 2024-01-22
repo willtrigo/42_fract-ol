@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/22 07:21:32 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/22 08:14:45 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                REQUIREMENTS                                  #
 #******************************************************************************#
 
-LIBFT_VERSION                   := 2.4.6
+LIBFT_VERSION                   := 2.4.7
 MLX42_VERSION                   := 2.3.3
 CMAKE_VERSION                   := 3.16
 
@@ -35,7 +35,7 @@ RESET                           := \033[0m
 
 SRCS_MAIN_DIR                   := src/
 SRCS_INTERNAL_DIR               := src/internal/
-INCS                            := src/ src/internal/ bonus/ bonus/internal/ bonus/internal/control/ lib/42_libft/include/ lib/MLX42/include/
+INCS                            := src/ bonus/ lib/42_libft/include/ lib/MLX42/include/
 SRCS_MAIN_BONUS_DIR             := bonus/
 SRCS_INTERNAL_BONUS_DIR         := bonus/internal/
 SRCS_INTERNAL_CONTROL_BONUS_DIR := bonus/internal/control/

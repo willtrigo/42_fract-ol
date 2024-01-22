@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:35:10 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:28:53 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:49:53 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
+#include "internal/ft_math.h"
 
 void	ft_get_complex(t_canvas *data, t_complex *z, t_complex *c,
 			t_complex *x_y)

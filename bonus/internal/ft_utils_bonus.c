@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:50:20 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:02:57 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_utils_bonus.h"
+#include "internal/ft_utils_bonus.h"
 
 void	ft_help(void)
 {

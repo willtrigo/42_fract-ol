@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 05:26:04 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:54:34 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:08:37 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_control_color_bonus.h"
+#include "internal/control/ft_control_color_bonus.h"
 
 static void	ft_change_all_color_channel(mlx_key_data_t key, \
 	t_canvas_bonus *data);

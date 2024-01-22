@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:33:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:50:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_control.h"
+#include "internal/ft_control.h"
 
 static void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas *data);
 

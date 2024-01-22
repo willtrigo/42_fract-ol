@@ -6,14 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:36:56 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:50:15 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:10:12 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_UTILS_BONUS_H
 # define FT_UTILS_BONUS_H
 
-# include "ft_non_standard.h"
+# include "ft_non_standard/ft_non_standard.h"
 # include "ft_fractol_bonus.h"
 
 void	ft_help(void);

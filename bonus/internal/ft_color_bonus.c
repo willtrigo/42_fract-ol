@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:32:26 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:53:01 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:04:51 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_color_bonus.h"
+#include "internal/ft_color_bonus.h"
 
 int32_t	ft_bernstein_poly(uint32_t i, int32_t a, t_canvas_bonus *data)
 {

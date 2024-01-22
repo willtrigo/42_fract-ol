@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 05:45:53 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:50:44 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:03:18 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define FT_RENDER_BONUS_H
 
 # include "ft_fractol_bonus.h"
-# include "ft_color_bonus.h"
-# include "ft_math_bonus.h"
-# include "ft_utils_bonus.h"
+# include "internal/ft_color_bonus.h"
+# include "internal/ft_math_bonus.h"
+# include "internal/ft_utils_bonus.h"
 
 void	ft_render_fractal(t_canvas_bonus *data);
 

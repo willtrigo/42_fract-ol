@@ -6,15 +6,15 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:55:53 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/18 03:22:28 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:54:27 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
 #include "MLX42/MLX42.h"
-#include "ft_utils.h"
-#include "ft_parse_fractal.h"
-#include "ft_canvas.h"
+#include "internal/ft_utils.h"
+#include "internal/ft_parse_fractal.h"
+#include "internal/ft_canvas.h"
 
 int32_t	main(int32_t argc, char **argv)
 {

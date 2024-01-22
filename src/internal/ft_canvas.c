@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:46:28 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:51:43 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_canvas.h"
+#include "internal/ft_canvas.h"
 
 static void	ft_init_fractal(t_canvas *data, char *name, char **value);
 

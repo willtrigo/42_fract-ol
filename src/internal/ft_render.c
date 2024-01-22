@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/15 20:34:28 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:18:16 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_render.h"
+#include "internal/ft_render.h"
 
 static void	ft_handle_pixel(int x, int y, t_canvas *data);
 
