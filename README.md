@@ -64,7 +64,7 @@ You can choose one of the three fractals below:
 
 ## Motion
 
-- **Arrow keys**: Move around the fractal.
+- **Arrow keys**: Move around the fractal (works only in the bonus).
 - **Mouse scroll**: Zoom in or out, (only in the bonus the scroll follow the mouse position).
 - `=` **key**: Zoom in (works only in the bonus).
 - `-` **key**: Zoom out (works only in the bonus).
@@ -77,3 +77,7 @@ You can choose one of the three fractals below:
 - `g` **key**: Increase color shift G to the fractal.
 - `b` **key**: Increase color shift B to the fractal.
 - `c` **key**: Increase all colors shift RGB at once.
+
+##
+
+- `Esc` **key**: Close the window.
