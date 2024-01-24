@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/22 09:02:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:56:57 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_sleep(t_canvas_bonus *data)
 
 	i = 0;
 	j = 0;
-	millisecond_time = 10000 * 2000;
+	millisecond_time = 10000;
 	while (i < millisecond_time)
 	{
 		while (j < 1000)

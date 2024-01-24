@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:47:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/22 09:09:06 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:52:14 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas_bonus *data)
 {
 	if (!data->render)
 	{
-		data->render = RENDER_ON;
 		if (zoom_in_out == ZOOM_IN && data->fractal->zoom.x > ZOOM_MAX)
 		{
 			data->fractal->zoom.x -= data->fractal->zoom.x / SPEED * 2;
@@ -35,6 +34,7 @@ void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas_bonus *data)
 			data->fractal->zoom.x = data->zoom_init;
 			data->fractal->zoom.y = data->zoom_init;
 		}
+		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
 }
@@ -68,26 +68,26 @@ static void	ft_offset(mlx_key_data_t key, t_canvas_bonus *data)
 {
 	if (key.key == MLX_KEY_RIGHT && !data->render && key.action == MLX_RELEASE)
 	{
-		data->render = RENDER_ON;
 		data->fractal->offset.x += data->fractal->zoom.x / 30.0;
+		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
 	if (key.key == MLX_KEY_LEFT && !data->render && key.action == MLX_RELEASE)
 	{
-		data->render = RENDER_ON;
 		data->fractal->offset.x -= data->fractal->zoom.x / 30.0;
+		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
 	if (key.key == MLX_KEY_UP && !data->render && key.action == MLX_RELEASE)
 	{
-		data->render = RENDER_ON;
 		data->fractal->offset.y += data->fractal->zoom.x / 30.0;
+		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
 	if (key.key == MLX_KEY_DOWN && !data->render && key.action == MLX_RELEASE)
 	{
-		data->render = RENDER_ON;
 		data->fractal->offset.y -= data->fractal->zoom.x / 30.0;
+		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
 }

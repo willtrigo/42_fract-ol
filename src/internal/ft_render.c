@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/22 08:18:16 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/01/24 13:21:51 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@ void	ft_render_fractal(t_canvas *data)
 	int	y;
 
 	y = -1;
+	data->render = RENDER_ON;
+	data->canvas = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 			ft_handle_pixel(x, y, data);
 	}
+	mlx_image_to_window(data->mlx, data->canvas, 0, 0);
 	ft_sleep(data);
 }
 
