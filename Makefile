@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/23 04:14:28 by dande-je         ###   ########.fr        #
+#    Updated: 2024/01/26 20:46:28 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                REQUIREMENTS                                  #
 #******************************************************************************#
 
-LIBFT_VERSION                   := 2.4.7
+LIBFT_VERSION                   := 2.4.8
 MLX42_VERSION                   := 2.3.3
 CMAKE_VERSION                   := 3.16
 
@@ -147,6 +147,7 @@ define create_dir
 endef
 
 define submodule_update_mlx42
+	$(RM) $(MLX42_DIR)
 	printf "$(PURPLE)Building library MLX42\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach -q --recursive \
@@ -163,6 +164,7 @@ define submodule_update_mlx42
 endef
 
 define submodule_update_libft
+	$(RM) $(LIBFT_DIR)
 	printf "$(PURPLE)Building library Libft\n$(RESET)"
 	git submodule update --init --recursive >/dev/null 2>&1 || true
 	git submodule foreach -q --recursive \
