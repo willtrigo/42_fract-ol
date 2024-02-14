@@ -6,13 +6,22 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/24 12:51:58 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/13 22:14:38 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal/ft_render_bonus.h"
 
 static void	ft_handle_pixel(int x, int y, t_canvas_bonus *data);
+
+void	ft_handle_time(void *param)
+{
+	t_canvas_bonus *data;
+	
+	data = (t_canvas_bonus *)param;
+	data->chronometer += mlx_get_time();
+	ft_sleep(data);
+}
 
 void	ft_render_fractal(t_canvas_bonus *data)
 {
@@ -29,7 +38,7 @@ void	ft_render_fractal(t_canvas_bonus *data)
 			ft_handle_pixel(x, y, data);
 	}
 	mlx_image_to_window(data->mlx, data->canvas, 0, 0);
-	ft_sleep(data);
+	data->chronometer = 0.0;
 }
 
 static void	ft_handle_pixel(int x, int y, t_canvas_bonus *data)

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/24 12:56:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/13 22:09:33 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,8 @@ void	ft_help(void)
 
 void	ft_sleep(t_canvas_bonus *data)
 {
-	volatile int	i;
-	volatile int	j;
-	volatile int	millisecond_time;
-
-	i = 0;
-	j = 0;
-	millisecond_time = 10000;
-	while (i < millisecond_time)
-	{
-		while (j < 1000)
-			j++;
-		i++;
-	}
-	data->render = RENDER_OFF;
+	if (data->chronometer > 0.3)
+		data->render = RENDER_OFF;
 }
 
 void	ft_output_error(char *str_title, char *str_message)
