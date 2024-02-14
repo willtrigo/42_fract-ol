@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 05:26:04 by dande-je          #+#    #+#             */
-/*   Updated: 2024/01/24 12:52:47 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:34:36 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_color_hook(mlx_key_data_t key, t_canvas_bonus *data)
 static void	ft_change_all_color_channel(mlx_key_data_t key, \
 	t_canvas_bonus *data)
 {
-	if (key.key == MLX_KEY_C && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_C && !data->render)
 	{
 		data->r_shitf += CONST_COLOR;
 		data->g_shitf += CONST_COLOR;
@@ -39,19 +39,19 @@ static void	ft_change_all_color_channel(mlx_key_data_t key, \
 
 static void	ft_change_color_channel(mlx_key_data_t key, t_canvas_bonus *data)
 {
-	if (key.key == MLX_KEY_R && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_R && !data->render)
 	{
 		data->r_shitf += CONST_COLOR;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
-	if (key.key == MLX_KEY_G && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_G && !data->render)
 	{
 		data->g_shitf += CONST_COLOR;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
-	if (key.key == MLX_KEY_B && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_B && !data->render)
 	{
 		data->b_shitf += CONST_COLOR;
 		mlx_delete_image(data->mlx, data->canvas);
@@ -61,13 +61,13 @@ static void	ft_change_color_channel(mlx_key_data_t key, t_canvas_bonus *data)
 
 static void	ft_reset_color(mlx_key_data_t key, t_canvas_bonus *data)
 {
-	if (key.key == MLX_KEY_1 && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_1 && !data->render)
 	{
 		ft_reset_fractal(data);
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
-	if (key.key == MLX_KEY_0 && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_0 && !data->render)
 	{
 		ft_reset_fractal(data);
 		data->r_shitf = 0.0;

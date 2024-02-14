@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:47:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/13 22:55:37 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:49:55 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	ft_zoom_offset(int8_t zoom_in_out, t_canvas_bonus *data)
 		data->fractal->offset.y -= (CONST_ZOOM * data->fractal->zoom.y) \
 			* ((data->mouse_y - HEIGHT / 2) / SPEED);
 	}
-	else if (zoom_in_out == ZOOM_OUT)
+	else if (zoom_in_out == ZOOM_OUT \
+		&& data->fractal->zoom.x < data->zoom_init)
 	{
 		data->fractal->offset.x -= (CONST_ZOOM * data->fractal->zoom.x) \
 			* ((data->mouse_x - WIDTH / 2) / SPEED);
@@ -68,25 +69,25 @@ void	ft_zoom_offset(int8_t zoom_in_out, t_canvas_bonus *data)
 
 static void	ft_offset(mlx_key_data_t key, t_canvas_bonus *data)
 {
-	if (key.key == MLX_KEY_RIGHT && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_RIGHT && !data->render)
 	{
 		data->fractal->offset.x += data->fractal->zoom.x / 30.0;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
-	if (key.key == MLX_KEY_LEFT && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_LEFT && !data->render)
 	{
 		data->fractal->offset.x -= data->fractal->zoom.x / 30.0;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
-	if (key.key == MLX_KEY_UP && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_UP && !data->render)
 	{
 		data->fractal->offset.y += data->fractal->zoom.x / 30.0;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
-	if (key.key == MLX_KEY_DOWN && !data->render && key.action == MLX_RELEASE)
+	if (key.key == MLX_KEY_DOWN && !data->render)
 	{
 		data->fractal->offset.y -= data->fractal->zoom.x / 30.0;
 		mlx_delete_image(data->mlx, data->canvas);
