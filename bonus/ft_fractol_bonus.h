@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 00:16:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 00:36:27 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define ZOOM_MAX 0.000000000000005642
 # define CONST_COLOR 0.01
 # define CONST_ZOOM 0.01
+# define DELAY 0.3
 # define RENDER_ON 0X01
 # define RENDER_OFF 0X00
 
