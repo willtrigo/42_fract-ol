@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 00:36:27 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 01:28:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ struct s_canvas_bonus
 	int32_t			mouse_y;
 	char			*title_window;
 	char			*name;
-	uint8_t			render;
+	int8_t			render;
 };
 
 #endif

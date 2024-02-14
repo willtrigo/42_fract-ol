@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 00:33:29 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 01:28:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ struct s_canvas
 	double			chronometer;
 	char			*title_window;
 	char			*name;
-	uint8_t			render;
+	int8_t			render;
 };
 
 #endif
