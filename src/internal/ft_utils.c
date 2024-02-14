@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 08:07:25 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 00:33:38 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 01:37:48 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@ void	ft_help(void)
 		STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------", STDOUT_FILENO);
 	ft_putstr_fd("----------------------------------\n", STDOUT_FILENO);
-}
-
-void	ft_sleep(t_canvas *data)
-{
-	if (data->chronometer > DELAY)
-		data->render = RENDER_OFF;
 }
 
 void	ft_output_error(char *str_title, char *str_message)

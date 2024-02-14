@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/13 22:10:09 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 01:37:39 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_handle_time(void *param)
 	
 	data = (t_canvas *)param;
 	data->chronometer += mlx_get_time();
-	ft_sleep(data);
+	if (data->chronometer > DELAY)
+		data->render = RENDER_OFF;
 }
 
 void	ft_render_fractal(t_canvas *data)
