@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 01:28:05 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:42:51 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define MAX_DEFINITION 120
 # define MAX_COLOR_DEFINITION 250
 # define MAX_VALUE_POLY 4
-# define SPEED 20
+# define SPEED 10
 # define ZOOM_INIT 0.618
 # define ZOOM_TRICORN_INIT 0.911
 # define ZOOM_IN 0x01
@@ -31,6 +31,7 @@
 # define ZOOM_MAX 0.000000000000005642
 # define CONST_COLOR 0.01
 # define CONST_ZOOM 0.01
+# define CONST_OFFSET 20
 # define DELAY 0.3
 # define RENDER_ON 0X01
 # define RENDER_OFF 0X00

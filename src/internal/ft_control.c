@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 06:56:37 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/13 23:44:47 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:17:16 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas *data)
 	if (!data->render)
 	{
 		data->render = RENDER_ON;
+		data->chronometer = 0.0;
 		if (zoom_in_out == ZOOM_IN && data->fractal->zoom.x > ZOOM_MAX)
 		{
 			data->fractal->zoom.x -= data->fractal->zoom.x / SPEED * 2;
@@ -45,8 +46,8 @@ static void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas *data)
 		else if (zoom_in_out == ZOOM_OUT \
 			&& data->fractal->zoom.x < data->zoom_init)
 		{
-			data->fractal->zoom.x += data->fractal->zoom.x / SPEED * 4;
-			data->fractal->zoom.y += data->fractal->zoom.y / SPEED * 4;
+			data->fractal->zoom.x += data->fractal->zoom.x / SPEED * 2;
+			data->fractal->zoom.y += data->fractal->zoom.y / SPEED * 2;
 		}
 		if (data->fractal->zoom.x > data->zoom_init)
 		{
