@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 01:39:09 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 01:42:47 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void	ft_handle_pixel(int x, int y, t_canvas_bonus *data);
 
 void	ft_handle_time(void *param)
 {
-	t_canvas_bonus *data;
-	
+	t_canvas_bonus	*data;
+
 	data = (t_canvas_bonus *)param;
 	data->chronometer += mlx_get_time();
 	if (data->chronometer > DELAY)
