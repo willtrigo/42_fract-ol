@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:47:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 22:14:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:52:56 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_zoom_hook(uint8_t zoom_in_out, t_canvas_bonus *data)
 {
 	if (!data->render)
 	{
+		data->delay = mlx_get_time() + DELAY * 100;
 		data->render = RENDER_ON;
 		if (zoom_in_out == ZOOM_IN && data->fractal->zoom.x > ZOOM_MAX)
 		{

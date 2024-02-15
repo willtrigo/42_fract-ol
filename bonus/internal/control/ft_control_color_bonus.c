@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 05:26:04 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/13 23:34:36 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:54:28 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void	ft_change_all_color_channel(mlx_key_data_t key, \
 {
 	if (key.key == MLX_KEY_C && !data->render)
 	{
+		data->delay = mlx_get_time() + DELAY * 100;
+		data->render = RENDER_ON;
 		data->r_shitf += CONST_COLOR;
 		data->g_shitf += CONST_COLOR;
 		data->b_shitf += CONST_COLOR;
@@ -41,18 +43,24 @@ static void	ft_change_color_channel(mlx_key_data_t key, t_canvas_bonus *data)
 {
 	if (key.key == MLX_KEY_R && !data->render)
 	{
+		data->delay = mlx_get_time() + DELAY * 100;
+		data->render = RENDER_ON;
 		data->r_shitf += CONST_COLOR;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
 	if (key.key == MLX_KEY_G && !data->render)
 	{
+		data->delay = mlx_get_time() + DELAY * 100;
+		data->render = RENDER_ON;
 		data->g_shitf += CONST_COLOR;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);
 	}
 	if (key.key == MLX_KEY_B && !data->render)
 	{
+		data->delay = mlx_get_time() + DELAY * 100;
+		data->render = RENDER_ON;
 		data->b_shitf += CONST_COLOR;
 		mlx_delete_image(data->mlx, data->canvas);
 		ft_render_fractal(data);

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/15 15:59:14 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:42:23 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ struct s_canvas_bonus
 	double			g_shitf;
 	double			r_shitf;
 	double			zoom_init;
-	double			chronometer;
 	double			delay;
 	int32_t			mouse_x;
 	int32_t			mouse_y;

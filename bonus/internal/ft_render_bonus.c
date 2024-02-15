@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 08:10:15 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 22:13:39 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:52:34 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	ft_handle_time(void *param)
 	t_canvas_bonus	*data;
 
 	data = (t_canvas_bonus *)param;
-	data->chronometer = mlx_get_time();
-	if (data->chronometer > data->delay)
+	if (mlx_get_time() > data->delay)
 		data->render = RENDER_OFF;
 }
 
@@ -30,6 +29,7 @@ void	ft_render_fractal(t_canvas_bonus *data)
 	int	y;
 
 	y = -1;
+	data->delay = mlx_get_time() + DELAY * 100;
 	data->render = RENDER_ON;
 	data->canvas = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	while (++y < HEIGHT)

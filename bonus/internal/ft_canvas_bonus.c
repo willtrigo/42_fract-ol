@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:12:51 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 22:28:43 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:51:48 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_create_canvas(char **map)
 	data.fractal = ft_calloc(1, sizeof(t_fractal_bonus));
 	ft_init_fractal(&data, data.name, map);
 	data.render = RENDER_ON;
-	data.chronometer = 0.0;
 	data.delay = 0.0;
 	data.mouse_x = 0;
 	data.mouse_y = 0;
