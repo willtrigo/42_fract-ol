@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 16:42:51 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:22:50 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define CONST_COLOR 0.01
 # define CONST_ZOOM 0.01
 # define CONST_OFFSET 20
-# define DELAY 0.3
+# define DELAY 0.1
 # define RENDER_ON 0X01
 # define RENDER_OFF 0X00
 
@@ -79,6 +79,7 @@ struct s_canvas_bonus
 	double			r_shitf;
 	double			zoom_init;
 	double			chronometer;
+	double			delay;
 	int32_t			mouse_x;
 	int32_t			mouse_y;
 	char			*title_window;

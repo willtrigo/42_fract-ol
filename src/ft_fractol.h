@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 07:59:55 by dande-je          #+#    #+#             */
-/*   Updated: 2024/02/14 17:16:09 by dande-je         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:12:35 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define ZOOM_IN 0x01
 # define ZOOM_OUT 0x00
 # define ZOOM_MAX 0.000000000000005642
-# define DELAY 0.3
+# define DELAY 0.15
 # define RENDER_ON 0X01
 # define RENDER_OFF 0X00
 
@@ -73,6 +73,7 @@ struct s_canvas
 	double			r_shitf;
 	double			zoom_init;
 	double			chronometer;
+	double			delay;
 	char			*title_window;
 	char			*name;
 	int8_t			render;
