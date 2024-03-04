@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 04:11:23 by dande-je          #+#    #+#              #
-#    Updated: 2024/01/26 20:46:28 by dande-je         ###   ########.fr        #
+#    Updated: 2024/03/04 18:07:54 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,7 @@ FCLEAN_MESSAGE                  := Fractol deleted
 EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target fractol
 EXE_BONUS_MESSAGE               = [100%%] $(GREEN)Built target fractol_bonus
 COMP_MESSAGE                    = Building C object
-COMP_BONUS                      = $(CYAN)[BONUS]$(RESET) $(YELLOW)Building C object
+COMP_BONUS_MESSAGE              = $(CYAN)[BONUS]$(RESET) $(YELLOW)Building C object
 
 #******************************************************************************#
 #                               COMPILATION                                    #
@@ -134,7 +134,7 @@ endif
 ifdef WITH_BONUS
 	NAME                       = $(NAME_BONUS)
 	OBJS                       = $(OBJS_BONUS)
-	COMP_MESSAGE               = $(COMP_BONUS)
+	COMP_MESSAGE               = $(COMP_BONUS_MESSAGE)
 	EXE_MESSAGE                = $(EXE_BONUS_MESSAGE)
 endif
 
